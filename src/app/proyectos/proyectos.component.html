@@ -1,0 +1,15 @@
+
+<div class="tarjeta" *ngFor="let element of lst ">
+
+  <div class="card">
+
+    <h5 class="card-header">{{ element.name }}</h5>
+    <div class="card-body">
+      <h5 class="card-title">Tipo: {{ element.projectTypeId }}</h5>
+      <p class="card-text">Descripción: {{ element.description }}</p>
+      <a [routerLink]="['/proyecto',element.projectId]" class="btn btn-primary">Editar</a>
+    </div>
+
+  </div>
+
+</div>
