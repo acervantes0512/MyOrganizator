@@ -1,35 +1,53 @@
-<form class = "tarjeta border">
-  <div class="formulario">
+<div class="tarjeta border">
+
+  <form>
+    <div class="contenedorform">
+      <br><br>
+        <div style="text-align: center;">
+        <h6 class = "titulo">{{proyecto.name}}</h6>
+      </div>
+
+      <br>
+
+      <p>{{proyecto.description}}</p>
+
+      <label><b>Fecha Registro:</b> {{proyecto.registerDate}}</label><br>
+      <label><b>Fecha Inicio:</b> {{proyecto.startDate}}</label><br>
+      <label><b>Fecha Fin:</b> {{proyecto.endDate}}</label><br>
+
+    </div>
     <br><br>
-      <div style="text-align: center;">
-      <h6 class = "titulo">{{proyecto.name}}</h6>
-    </div>
 
-    <br>
 
-    <p>{{proyecto.description}}</p>
-
-    <label><b>Fecha Registro:</b> {{proyecto.registerDate}}</label><br>
-    <label><b>Fecha Inicio:</b> {{proyecto.startDate}}</label><br>
-    <label><b>Fecha Fin:</b> {{proyecto.endDate}}</label><br>
-
+  </form>
+  <div style="text-align: right;">
+    <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(mymodal)">Editar</button>
   </div>
-  <br><br>
+<br>
 
-  <!-- Large modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large
-  modal</button>
+<ng-template #mymodal let-modal>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      ...
-      <label>informacion</label>
-    </div>
+  <div class="modal-header" style="text-align: center;">
+    <h4 class="modal-title" style="margin: auto;"><b>Editar Datos del Proyecto</b></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+
+  <form>
+    <div class="modal-body">
+      <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </form>
+
+</ng-template>
+
+<br>
+
 </div>
 
 
-</form>
 

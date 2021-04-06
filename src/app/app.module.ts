@@ -11,6 +11,7 @@ import { ActividadesComponent } from './actividades/actividades.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProyectoComponent } from './proyecto/proyecto.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProyectoComponent } from './proyecto/proyecto.component';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

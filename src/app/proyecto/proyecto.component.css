@@ -3,7 +3,7 @@
   width: 90%;
 }
 
-.formulario{
+.contenedorform{
   margin: auto;
   width: 80%;
   height: 90%;
@@ -15,4 +15,10 @@
 
 .titulo{
   margin:0px auto;
+}
+
+.btnmodal{
+  margin: auto;
+  width: 20%;
+  margin-right: 5%;
 }
