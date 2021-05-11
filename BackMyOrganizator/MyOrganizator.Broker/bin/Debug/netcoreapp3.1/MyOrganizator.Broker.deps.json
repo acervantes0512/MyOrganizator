@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MyOrganizator.Broker/1.0.0": {
+        "dependencies": {
+          "MyOrganizator.Data": "1.0.0"
+        },
+        "runtime": {
+          "MyOrganizator.Broker.dll": {}
+        }
+      },
+      "MyOrganizator.Data/1.0.0": {
+        "runtime": {
+          "MyOrganizator.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyOrganizator.Broker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyOrganizator.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

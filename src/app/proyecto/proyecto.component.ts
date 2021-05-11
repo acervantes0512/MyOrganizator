@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProyectosService } from '../services/proyectos.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-proyecto',
@@ -13,10 +15,16 @@ export class ProyectoComponent implements OnInit {
   proyecto:any;
   title = 'appBootstrap';
   closeResult: string;
+  model;
+
+   frmproyecto: FormGroup;
+   submitted = false;
+   titulo = 'Editar Proyecto';
 
   constructor(private activateRoute: ActivatedRoute,
               private proyectoService: ProyectosService,
-              private modalService: NgbModal
+              private modalService: NgbModal,
+              private formBuilder: FormBuilder
               ) {
 
     this.activateRoute.params.subscribe(params => {
@@ -30,6 +38,15 @@ export class ProyectoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.frmproyecto = this.formBuilder.group({
+      nombreProyecto: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      asunto: ['', Validators.required],
+      tipoProyecto: ['', Validators.required],
+      mensaje: ['', [Validators.required, Validators.minLength(6)]]
+    });
+
   }
 
   open(content) {
@@ -48,6 +65,18 @@ export class ProyectoComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  get f() { return this.frmproyecto.controls; }
+
+  onSubmit() {
+      this.submitted = true;
+
+      if (this.frmproyecto.invalid) {
+          return;
+      }
+
+      alert('Mensaje Enviado !')
   }
 
 }

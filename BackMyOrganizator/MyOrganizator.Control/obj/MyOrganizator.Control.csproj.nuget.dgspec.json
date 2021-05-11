@@ -1,0 +1,336 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Control\\MyOrganizator.Control.csproj": {}
+  },
+  "projects": {
+    "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\MyOrganizator.Broker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\MyOrganizator.Broker.csproj",
+        "projectName": "MyOrganizator.Broker",
+        "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\MyOrganizator.Broker.csproj",
+        "packagesPath": "C:\\Users\\AlexCC\\.nuget\\packages\\",
+        "outputPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AlexCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Data\\MyOrganizator.Data.csproj": {
+                "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Data\\MyOrganizator.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Control\\MyOrganizator.Control.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Control\\MyOrganizator.Control.csproj",
+        "projectName": "MyOrganizator.Control",
+        "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Control\\MyOrganizator.Control.csproj",
+        "packagesPath": "C:\\Users\\AlexCC\\.nuget\\packages\\",
+        "outputPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Control\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AlexCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\MyOrganizator.Broker.csproj": {
+                "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\MyOrganizator.Broker.csproj"
+              },
+              "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Entities\\MyOrganizator.Entities.csproj": {
+                "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Entities\\MyOrganizator.Entities.csproj"
+              },
+              "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Util\\MyOrganizator.Util.csproj": {
+                "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Util\\MyOrganizator.Util.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Data\\MyOrganizator.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Data\\MyOrganizator.Data.csproj",
+        "projectName": "MyOrganizator.Data",
+        "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Data\\MyOrganizator.Data.csproj",
+        "packagesPath": "C:\\Users\\AlexCC\\.nuget\\packages\\",
+        "outputPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AlexCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Entities\\MyOrganizator.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Entities\\MyOrganizator.Entities.csproj",
+        "projectName": "MyOrganizator.Entities",
+        "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Entities\\MyOrganizator.Entities.csproj",
+        "packagesPath": "C:\\Users\\AlexCC\\.nuget\\packages\\",
+        "outputPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AlexCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Util\\MyOrganizator.Util.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Util\\MyOrganizator.Util.csproj",
+        "projectName": "MyOrganizator.Util",
+        "projectPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Util\\MyOrganizator.Util.csproj",
+        "packagesPath": "C:\\Users\\AlexCC\\.nuget\\packages\\",
+        "outputPath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Util\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AlexCC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
