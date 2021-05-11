@@ -1,0 +1,12 @@
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.deps.json
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.dll
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.pdb
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.csprojAssemblyReference.cache
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.AssemblyInfoInputs.cache
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.AssemblyInfo.cs
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.csproj.CoreCompileInputs.cache
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.dll
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.pdb
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.runtimeconfig.json
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.runtimeconfig.dev.json
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.genruntimeconfig.cache

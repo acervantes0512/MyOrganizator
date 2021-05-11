@@ -1,0 +1,12 @@
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Broker.deps.json
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Broker.dll
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Broker.pdb
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Data.dll
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Data.pdb
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.csprojAssemblyReference.cache
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.AssemblyInfoInputs.cache
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.AssemblyInfo.cs
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.csproj.CoreCompileInputs.cache
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.csproj.CopyComplete
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.dll
+D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.pdb
