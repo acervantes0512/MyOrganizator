@@ -1,9 +1,0 @@
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\bin\Debug\netcoreapp3.1\MyOrganizator.Util.deps.json
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\bin\Debug\netcoreapp3.1\MyOrganizator.Util.dll
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\bin\Debug\netcoreapp3.1\MyOrganizator.Util.pdb
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\obj\Debug\netcoreapp3.1\MyOrganizator.Util.csprojAssemblyReference.cache
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\obj\Debug\netcoreapp3.1\MyOrganizator.Util.AssemblyInfoInputs.cache
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\obj\Debug\netcoreapp3.1\MyOrganizator.Util.AssemblyInfo.cs
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\obj\Debug\netcoreapp3.1\MyOrganizator.Util.csproj.CoreCompileInputs.cache
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\obj\Debug\netcoreapp3.1\MyOrganizator.Util.dll
-D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Util\obj\Debug\netcoreapp3.1\MyOrganizator.Util.pdb
