@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 using System;
-=======
-﻿using System;
->>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using MyOrganizator.Control;
-=======
->>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a
 using MyOrganizator.Entities.Models;
 using MyOrganizator.Entities.Models.Request;
 using MyOrganizator.Entities.Models.Response;
@@ -37,7 +30,6 @@ namespace WebMyOrganizator.Controllers
             oRespuesta.Exito = 0;
             try {
 
-<<<<<<< HEAD
               //oRespuesta.Data = this._context.Projects.ToList();
               ProjectControl cProject = new ProjectControl(); 
               oRespuesta.Data = cProject.getAllProjects();
@@ -47,15 +39,6 @@ namespace WebMyOrganizator.Controllers
             {
               oRespuesta.Exito = 1;
               oRespuesta.Mensaje = ex.Message;
-=======
-                oRespuesta.Exito = 1;
-                oRespuesta.Data = this._context.Projects.ToList();
-
-            }
-            catch (Exception ex)
-            {
-                oRespuesta.Mensaje = ex.Message;
->>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a
             }
 
             return Ok(oRespuesta);
@@ -69,7 +52,6 @@ namespace WebMyOrganizator.Controllers
             oRespuesta.Exito = 0;
             try
             {
-<<<<<<< HEAD
                 //oRespuesta.Data = this._context.Projects.Find(id);
 
                 ProjectControl cProject = new ProjectControl();
@@ -80,16 +62,6 @@ namespace WebMyOrganizator.Controllers
             {
               oRespuesta.Exito = 1;
               oRespuesta.Mensaje = ex.Message;
-=======
-
-                oRespuesta.Exito = 1;
-                oRespuesta.Data = this._context.Projects.Find(id);
-
-            }
-            catch (Exception ex)
-            {
-                oRespuesta.Mensaje = ex.Message;
->>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a
             }
 
             return Ok(oRespuesta);
