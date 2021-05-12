@@ -4,12 +4,5 @@
   "success": true,
   "projectFilePath": "D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\MyOrganizator.Broker.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché D:\\Estudio\\Angular\\MyOrganizator\\MyOrganizator\\BackMyOrganizator\\MyOrganizator.Broker\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

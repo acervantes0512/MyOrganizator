@@ -34,7 +34,7 @@ namespace MyOrganizator.Control
 
       p.ProjectId = 1;
       p.Name = "Proyecto 1";
-      p.Description = "Descripción proyecto 1 Descripción proyecto 1 Descripción proyecto 1";
+      p.Description = "Esta es la descripción del proyecto uno, esta es solamente un texto para el ejemplo de la descripción.";
       p.State = 1;
       p.Label = "Personal";
       p.RegisterDate = Convert.ToDateTime("11/05/2021");
