@@ -19,6 +19,7 @@ D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\n
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.dll
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.pdb
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.genruntimeconfig.cache
+<<<<<<< HEAD
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.pdb
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\bin\Debug\netcoreapp3.1\MyOrganizator.Control.deps.json
@@ -40,3 +41,5 @@ D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.C
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.csproj.CoreCompileInputs.cache
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.csproj.CopyComplete
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Control\obj\Debug\netcoreapp3.1\MyOrganizator.Control.genruntimeconfig.cache
+=======
+>>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a

@@ -1,5 +1,6 @@
 <h1>Angular 10 Bootstrap 4 Datepicker Example - ItSolutionStuff.com</h1>
 
+<<<<<<< HEAD
 <form class="form-inline">
   <div class="form-group">
     <div class="input-group">
@@ -9,6 +10,19 @@
         <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
       </div>
     </div>
+=======
+<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is example from ItSolutionStuff.com modificación git. 
+>>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a
   </div>
 </form>
 

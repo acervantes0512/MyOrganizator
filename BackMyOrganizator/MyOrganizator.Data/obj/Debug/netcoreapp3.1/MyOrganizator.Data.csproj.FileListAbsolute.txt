@@ -7,6 +7,7 @@ D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netc
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netcoreapp3.1\MyOrganizator.Data.csproj.CoreCompileInputs.cache
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netcoreapp3.1\MyOrganizator.Data.dll
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netcoreapp3.1\MyOrganizator.Data.pdb
+<<<<<<< HEAD
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\bin\Debug\netcoreapp3.1\MyOrganizator.Data.deps.json
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\bin\Debug\netcoreapp3.1\MyOrganizator.Data.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\bin\Debug\netcoreapp3.1\MyOrganizator.Data.pdb
@@ -16,3 +17,5 @@ D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.D
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netcoreapp3.1\MyOrganizator.Data.csproj.CoreCompileInputs.cache
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netcoreapp3.1\MyOrganizator.Data.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Data\obj\Debug\netcoreapp3.1\MyOrganizator.Data.pdb
+=======
+>>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a

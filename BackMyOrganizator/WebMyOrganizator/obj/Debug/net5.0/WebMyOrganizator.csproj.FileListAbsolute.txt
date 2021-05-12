@@ -165,6 +165,7 @@ D:\Aprendizaje\MyOrganizator\BackMyOrganizator\WebMyOrganizator\bin\Debug\net5.0
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\WebMyOrganizator\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\WebMyOrganizator\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\WebMyOrganizator\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
+<<<<<<< HEAD
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizator\obj\Debug\net5.0\WebMyOrganizator.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizator\obj\Debug\net5.0\ref\WebMyOrganizator.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizator\obj\Debug\net5.0\WebMyOrganizator.pdb
@@ -332,3 +333,5 @@ D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizato
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizator\obj\Debug\net5.0\WebMyOrganizator.RazorTargetAssemblyInfo.cache
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizator\obj\Debug\net5.0\WebMyOrganizator.csproj.CopyComplete
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\WebMyOrganizator\obj\Debug\net5.0\WebMyOrganizator.genruntimeconfig.cache
+=======
+>>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a

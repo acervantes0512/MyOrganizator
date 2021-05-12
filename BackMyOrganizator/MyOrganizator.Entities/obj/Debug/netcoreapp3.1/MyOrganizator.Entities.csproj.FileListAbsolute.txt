@@ -10,6 +10,7 @@ D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.runtimeconfig.json
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.runtimeconfig.dev.json
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.genruntimeconfig.cache
+<<<<<<< HEAD
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.pdb
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\bin\Debug\netcoreapp3.1\MyOrganizator.Entities.deps.json
@@ -22,3 +23,5 @@ D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.E
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.AssemblyInfo.cs
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.csproj.CoreCompileInputs.cache
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Entities\obj\Debug\netcoreapp3.1\MyOrganizator.Entities.genruntimeconfig.cache
+=======
+>>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a

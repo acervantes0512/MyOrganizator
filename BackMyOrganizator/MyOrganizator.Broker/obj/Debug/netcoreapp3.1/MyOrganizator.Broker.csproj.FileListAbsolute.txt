@@ -10,6 +10,7 @@ D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\ne
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.csproj.CopyComplete
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.dll
 D:\Aprendizaje\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.pdb
+<<<<<<< HEAD
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Broker.deps.json
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Broker.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\bin\Debug\netcoreapp3.1\MyOrganizator.Broker.pdb
@@ -22,3 +23,5 @@ D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.B
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.csproj.CopyComplete
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.dll
 D:\Estudio\Angular\MyOrganizator\MyOrganizator\BackMyOrganizator\MyOrganizator.Broker\obj\Debug\netcoreapp3.1\MyOrganizator.Broker.pdb
+=======
+>>>>>>> 60cc4f777525445d4b218ce1200a99c11e3b418a
