@@ -79,7 +79,10 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-obj
+obj/
+/obj
 
 # Visual Studio 2015
 .vs/
+
+
