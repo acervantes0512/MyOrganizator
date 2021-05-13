@@ -4,6 +4,10 @@ import { ProyectosService } from '../services/proyectos.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+declare interface TableData {
+  headerRow: string[];
+  dataRows: string[][];
+}
 
 @Component({
   selector: 'app-proyecto',
@@ -16,10 +20,16 @@ export class ProyectoComponent implements OnInit {
   title = 'appBootstrap';
   closeResult: string;
   model;
+  headerRow: string[];
+  dataRows: string[][];
 
    frmproyecto: FormGroup;
    submitted = false;
    titulo = 'Editar Proyecto';
+
+   public tableData1: TableData;
+   public tableData2: TableData;
+ 
 
   constructor(private activateRoute: ActivatedRoute,
               private proyectoService: ProyectosService,
@@ -46,6 +56,18 @@ export class ProyectoComponent implements OnInit {
       tipoProyecto: ['', Validators.required],
       mensaje: ['', [Validators.required, Validators.minLength(6)]]
     });
+
+    this.tableData1 = {
+      headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
+      dataRows: [
+          ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
+          ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
+          ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
+          ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
+          ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
+          ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
+      ]
+    }
 
   }
 

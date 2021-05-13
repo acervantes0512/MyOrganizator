@@ -1,4 +1,73 @@
 .tarjeta{
   margin: auto;
+  width: 100%;
+}
+
+.btn-tarjet{
+  margin: 5px;
+  width: 90px;
+  height: auto;
+  font-size:small;
+  padding: auto;
+}
+
+.footer-tarjet{
+  text-align: right; 
+  background-color: white;
+
+}
+
+.card-footer{
+  text-align: right; 
+  background-color: white;
+}
+
+.graph-card{
+  background-color:rgb(252, 233, 233);
+  height: 164px;
+  /* border-left: 1px solid rgb(224, 223, 223); */
+  border-bottom: 1px solid rgb(224, 223, 223);
+  display: flex;
+  align-items: center;
+}
+
+.my-card{
+  margin: auto;
   width: 80%;
+  height: 250px;
+  border-radius: 5px;
+  border: 1px;
+  border-color:rgb(224, 223, 223);
+  border-style: solid;
+  cursor: pointer;
+}
+
+.my-card-head{
+  border-bottom: 1px solid rgb(224, 223, 223);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(241, 240, 240);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.my-card-body{
+  border-bottom: 1px solid rgb(224, 223, 223);
+  height: 164px;
+  padding-left: 0px;
+  padding-right: 15px;
+
+}
+
+.my-card-footer{ 
+  
+  text-align: right;
+
+}
+
+.text-body{
+  padding-top: 10px;
+  padding-left: 35px;
 }

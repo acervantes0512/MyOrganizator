@@ -1,19 +1,65 @@
 
+<div class="tarjeta" [routerLink]="['/proyecto',element.projectId]" *ngFor="let element of lst ">
+
+  <div class="my-card">
+    <div class="my-card-head">{{ element.name }}</div>
+    <div class="my-card-body">
+      <div class="row">
+        <div class="col-lg-9 text-body">
+          {{ element.description }}
+        </div>
+        <div class="col-lg-3 graph-card">
+          <i class="fa fa-home ic"></i>
+        </div>
+      </div>
+      </div>
+    <div class="my-card-footer">
+      <button class="btn btn-primary btn-tarjet">Pausar</button>
+      <button class="btn btn-primary btn-tarjet">Finalizar</button>
+      <button class="btn btn-primary btn-tarjet">Cancelar</button>
+    </div>
+    
+  </div>
+
+  <br><br>
+
+</div>
+<!-- 
 <br><br>
 
-<div class="tarjeta" *ngFor="let element of lst ">
+<div class="tarjeta" style="cursor: pointer;" [routerLink]="['/proyecto',element.projectId]" *ngFor="let element of lst ">
 
   <div class="card">
 
     <h5 class="card-header">{{ element.name }}</h5>
+
     <div class="card-body">
-      <h5 class="card-title">Tipo: {{ element.projectTypeId }}</h5>
-      <p class="card-text">Descripción: {{ element.description }}</p>
-      <a [routerLink]="['/proyecto',element.projectId]" class="btn btn-primary">Editar</a>
+
+      <div class="row">
+        <div class="col-lg-9">
+          <h5 class="card-title">Tipo: {{ element.projectTypeId }}</h5>
+          <p class="card-text">Descripción: {{ element.description }}</p>
+        </div>
+
+        <div class="col-lg-3 graph-card">
+          gráfico
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <button class="btn btn-primary btn-tarjet">Pausar</button>
+      <button class="btn btn-primary btn-tarjet">Finalizar</button>
+      <button class="btn btn-primary btn-tarjet">Cancelar</button>
     </div>
 
   </div>
 
-  <br>
 
-</div>
+  <br><br>
+
+</div> 
+
+
+ -->
