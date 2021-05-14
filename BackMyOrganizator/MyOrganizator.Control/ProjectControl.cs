@@ -33,13 +33,13 @@ namespace MyOrganizator.Control
       Project p = new Project();
 
       p.ProjectId = 1;
-      p.Name = "Proyecto 1";
-      p.Description = "Esta ok es la descripción del proyecto uno, esta es solamente un texto para el ejemplo de la descripción. ";
+      p.Name = "Venta Online";
+      p.Description = "Esta es la descripción del proyecto uno, esta es solamente un texto para el ejemplo de la descripción. ";
       p.State = 1;
-      p.Label = "Personal";
-      p.RegisterDate = Convert.ToDateTime("11/05/2021");
-      p.StartDate = Convert.ToDateTime("11/05/2021");
-      p.EndDate = Convert.ToDateTime("11/05/2021");
+      p.Label = "Trabajo";
+      p.RegisterDate = Convert.ToDateTime("01/03/2021");
+      p.StartDate = Convert.ToDateTime("05/05/2021");
+      p.EndDate = Convert.ToDateTime("29/05/2021");
       p.ProjectId = 1;
       p.ProjectTypeId = 1;
 
@@ -48,13 +48,13 @@ namespace MyOrganizator.Control
       Project p1 = new Project();
 
       p1.ProjectId = 2;
-      p1.Name = "Proyecto 2";
-      p1.Description = "Descripción proyecto 2 Descripción proyecto 1 Descripción proyecto 2";
+      p1.Name = "My Organizator";
+      p1.Description = "Proyecto personal construido para la agenda diaria personal y el seguimiento de la productividad";
       p1.State = 1;
-      p1.Label = "Trabajo";
-      p1.RegisterDate = Convert.ToDateTime("11/05/2021");
-      p1.StartDate = Convert.ToDateTime("11/05/2021");
-      p1.EndDate = Convert.ToDateTime("11/05/2021");
+      p1.Label = "Personal";
+      p1.RegisterDate = Convert.ToDateTime("03/03/2021");
+      p1.StartDate = Convert.ToDateTime("02/04/2021");
+      p1.EndDate = Convert.ToDateTime("15/06/2021");
       p1.ProjectId = 2;
       p1.ProjectTypeId = 2;
 

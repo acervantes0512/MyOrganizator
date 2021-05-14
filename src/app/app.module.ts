@@ -14,6 +14,7 @@ import { ProyectoComponent } from './proyecto/proyecto.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     ActividadesComponent,
     ProyectosComponent,
-    ProyectoComponent
+    ProyectoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,

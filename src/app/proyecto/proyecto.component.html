@@ -3,26 +3,37 @@
   <form>
     <div class="contenedorform">
       <br><br>
-        <div style="text-align: center;">
-        <h6 class = "titulo"><h2>{{proyecto.name}}</h2></h6>
+      <div style="text-align: center;">
+        <h6 class="titulo">
+          <h2>{{proyecto.name}}</h2>
+        </h6>
       </div>
 
       <br>
 
       <p>{{proyecto.description}}</p>
 
-      <label><b>Fecha Registro:</b> {{proyecto.registerDate}}</label><br>
-      <label><b>Fecha Inicio:</b> {{proyecto.startDate}}</label><br>
-      <label><b>Fecha Fin:</b> {{proyecto.endDate}}</label><br>
-
+      <div class="row">
+        <div class="col-lg-6">
+          <label><b>Fecha Registro: </b> {{ proyecto.registerDate | date:'fullDate' }}</label>
+        </div>
+        <div class="col-lg-6">
+          <label><b>Fecha Inicio: </b>{{ proyecto.startDate | date:'fullDate' }}</label>
+        </div>
+        <div class="col-lg-6">
+          <label><b>Fecha Fin: </b>{{ proyecto.endDate | date:'fullDate' }}</label>
+        </div>
+        <div class="col-lg-6">
+          <label><b>Etiquetas: </b>{{ proyecto.Label}}</label>
+        </div>
+      </div>
     </div>
-    <br><br>
-
-
   </form>
-  <div style="text-align: right;">
-    <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(mymodal)">Editar</button>
-  </div>
+
+<br><br>
+<div style="text-align: right;">
+  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(mymodal)">Editar</button>
+</div>
 <br>
 
 <ng-template #mymodal let-modal>
@@ -35,99 +46,104 @@
   </div>
 
 
-    <div class="modal-body">
-        <div class="container">
+  <div class="modal-body">
+    <div class="container">
 
-          <div class="starter-template">
+      <div class="starter-template">
 
-            <div class="row">
+        <div class="row">
 
-              <div class="col-md-12 mt-5">
-
-
-
-              <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit()">
-
-                        <div class="form-group">
-                            <label>Nombre del Proyecto</label>
-                            <input type="text" formControlName="nombreProyecto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
-                            <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
-                                <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="tipoProyecto"> Tipo de Proyecto</label>
-
-                          <select class="form-control" formControlName="tipoProyecto" [ngClass]="{ 'is-invalid': submitted && f.tipoProyecto.errors }">
-                            <option value="">Seleccionar</option>
-                            <option value="Personal">Personal</option>
-                            <option value="Intergrupo">Intergrupo</option>
-                            <option value="Estudio">Estudio</option>
-                          </select>
-
-                          <form class="form-inline">
-                            <div class="form-group">
-                              <div class="input-group">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                <div class="input-group-append">
-                                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-
-                          <hr/>
-                          <pre>Model: {{ model | json }}</pre>
+          <div class="col-md-12 mt-5">
 
 
-                          <div *ngIf="submitted && f.tipoProyecto.errors" class="invalid-feedback">
-                              <div *ngIf="f.tipoProyecto.errors.required">Por favor, Selecciona el tipoProyecto</div>
-                          </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                <div *ngIf="f.email.errors.required">El email es obligatorio</div>
-                                <div *ngIf="f.email.errors.email">Por favor, ingresa tu Email</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Asunto</label>
-                            <input type="text" formControlName="asunto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.asunto.errors }" />
-                            <div *ngIf="submitted && f.asunto.errors" class="invalid-feedback">
-                                <div *ngIf="f.asunto.errors.required">Por favor, ingresa el Asunto</div>
-                            </div>
-                        </div>
+            <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit()">
 
-                        <div class="form-group">
-                          <label for="mensaje">Mensaje</label>
-                          <textarea class="form-control" formControlName="mensaje" rows="3" [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
-                          <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
-                              <div *ngIf="f.mensaje.errors.required">Por favor, ingresa el Mensaje ( 6 Caracteres mínimo )</div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                            <button  class="btn btn-primary">Aceptar</button>
-                        </div>
+              <div class="form-group">
+                <label>Nombre del Proyecto</label>
+                <input type="text" formControlName="nombreProyecto" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
+                <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
+                  <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
+                </div>
+              </div>
 
-                    </form>
+              <div class="form-group">
+                <label for="tipoProyecto"> Tipo de Proyecto</label>
 
-            </div>
+                <select class="form-control" formControlName="tipoProyecto"
+                  [ngClass]="{ 'is-invalid': submitted && f.tipoProyecto.errors }">
+                  <option value="">Seleccionar</option>
+                  <option value="Personal">Personal</option>
+                  <option value="Intergrupo">Intergrupo</option>
+                  <option value="Estudio">Estudio</option>
+                </select>
+
+                <form class="form-inline">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                        #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <hr />
+                <pre>Model: {{ model | json }}</pre>
+
+
+                <div *ngIf="submitted && f.tipoProyecto.errors" class="invalid-feedback">
+                  <div *ngIf="f.tipoProyecto.errors.required">Por favor, Selecciona el tipoProyecto</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+                  <div *ngIf="f.email.errors.email">Por favor, ingresa tu Email</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Asunto</label>
+                <input type="text" formControlName="asunto" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.asunto.errors }" />
+                <div *ngIf="submitted && f.asunto.errors" class="invalid-feedback">
+                  <div *ngIf="f.asunto.errors.required">Por favor, ingresa el Asunto</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea class="form-control" formControlName="mensaje" rows="3"
+                  [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
+                <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+                  <div *ngIf="f.mensaje.errors.required">Por favor, ingresa el Mensaje ( 6 Caracteres mínimo )</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary">Aceptar</button>
+              </div>
+
+            </form>
+
+          </div>
 
 
         </div>
 
-        </div>
+      </div>
 
     </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
 
 
 </ng-template>
@@ -141,7 +157,7 @@
         <div class="card">
           <div class="header">
             <h4 class="title">Actividades</h4>
-            
+
           </div>
           <div class="content table-responsive table-full-width">
             <table class="table table-hover table-striped">
@@ -164,7 +180,3 @@
 </div>
 
 </div>
-
-
-
-

@@ -23,7 +23,7 @@
 }
 
 .graph-card{
-  background-color:rgb(252, 233, 233);
+  /* background-color:rgb(252, 233, 233); */
   height: 164px;
   /* border-left: 1px solid rgb(224, 223, 223); */
   border-bottom: 1px solid rgb(224, 223, 223);
