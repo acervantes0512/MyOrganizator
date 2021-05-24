@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@adcat/auth-interceptor": "^0.2.0",
     "@angular/animations": "~11.2.0",
     "@angular/common": "~11.2.0",
     "@angular/compiler": "~11.2.0",
@@ -22,6 +23,7 @@
     "@icon/stroke-7": "^1.2.0-alpha.3",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "@popperjs/core": "^2.9.1",
+    "angular-http-auth-interceptor": "^1.0.4",
     "animate": "^1.0.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.6.0",

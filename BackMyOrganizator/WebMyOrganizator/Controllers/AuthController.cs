@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MyOrganizator.Entities;
@@ -30,7 +30,7 @@ namespace apiJWT3.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Role, "operator")
+                    new Claim(ClaimTypes.Role, "admin")
                 };
 
                 var tokenOptions = new JwtSecurityToken(
@@ -42,7 +42,14 @@ namespace apiJWT3.Controllers
                 );
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                return Ok(new { Token = tokenString });
+
+                // crea el objeto para la respuesta
+                AuthResponse oRta = new AuthResponse();
+
+                oRta.token = tokenString;
+                oRta.role = "admin";
+
+                return Ok(oRta);
             };
 
             return Unauthorized();

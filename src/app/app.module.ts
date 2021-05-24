@@ -9,12 +9,18 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ActividadesComponent } from './actividades/actividades.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProyectoComponent } from './proyecto/proyecto.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './usuario/register/register.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+
+import { authInterceptorProviders  } from './helpers/auth.interceptor';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +31,10 @@ import { LoginComponent } from './login/login.component';
     ActividadesComponent,
     ProyectosComponent,
     ProyectoComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    BoardUserComponent,
+    BoardAdminComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -36,7 +45,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
