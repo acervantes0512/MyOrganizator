@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,30 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  isLogin = false;
+  currentUser : any;
+  userName: string;
+
   constructor( private router: Router,
-               private routerModule: RouterModule        
+               private routerModule: RouterModule,
+               public token: TokenStorageService       
     ) { }
 
   ngOnInit(): void {
+     this.currentUser = this.token.getToken();
+
+    if(this.currentUser !== null)
+      this.isLogin = true; 
+  }
+
+  Logout():void {
+    this.token.signOut();
+    window.location.reload();
+    
+  }
+
+  updateFields():void {
+    this.userName = "Test Alex"
   }
 
 }

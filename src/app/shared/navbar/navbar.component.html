@@ -11,15 +11,24 @@
         </li> -->
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a *ngIf = "!token.getUser()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="assets\img\user-default.jpg" class="img-fluid rounded-circle avatar mr-2" >
-            Alex Cervantes
+            No User
           </a>
+
+          <a *ngIf = "token.getUser()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="assets\img\user-default.jpg" class="img-fluid rounded-circle avatar mr-2" >
+              {{token.getUser().nombre}}
+          </a>
+
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/login" >Mi Perfil</a>
-            <a class="dropdown-item" href="#">Parametrizaciones</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+            <a *ngIf = "token.getUser()" class="dropdown-item" routerLink="/login" >Mi Perfil</a>
+            <a *ngIf = "token.getUser()" class="dropdown-item" href="#">Parametrizaciones</a>
+            <div *ngIf = "token.getUser()" class="dropdown-divider"></div>
+            <a *ngIf = "token.getUser()" class="dropdown-item" (click) = "Logout()" >Cerrar Sesión</a>
+
+            <a *ngIf = "!token.getUser()" class="dropdown-item" routerLink="/login" >Iniciar Sesión</a>
+
           </div>
         </li>
 

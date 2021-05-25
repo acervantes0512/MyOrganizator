@@ -7,6 +7,7 @@ namespace MyOrganizator.Entities
   public class AuthResponse
   {
     public string token { get; set; }
+    public string nombre { get; set; }
     public string role  { get; set; }
   }
 }

@@ -48,6 +48,7 @@ namespace apiJWT3.Controllers
 
                 oRta.token = tokenString;
                 oRta.role = "admin";
+                oRta.nombre = "Kelly Cortés";
 
                 return Ok(oRta);
             };

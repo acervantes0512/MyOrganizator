@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from '../Models/usuario';
 import { AuthService } from '../services/auth.service';
 import { TokenStorageService } from '../services/token-storage.service';
 
@@ -15,14 +17,18 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  usuario: Usuario;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(
+              private authService: AuthService, 
+              private tokenStorage: TokenStorageService,
+              private router: Router
+              ) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().role;
+      this.usuario = this.tokenStorage.getUser();
     }
   }
 
@@ -38,14 +44,16 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().role;
-        this.reloadPage();
+        this.router.navigate(['/proyectos']);
+        
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
     );
+
+
   }
 
   reloadPage(): void {

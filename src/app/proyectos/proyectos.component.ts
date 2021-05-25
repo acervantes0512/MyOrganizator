@@ -19,9 +19,7 @@ export class ProyectosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
     this.getProyectos();
-
 
   }
 
@@ -33,10 +31,6 @@ export class ProyectosComponent implements OnInit {
   }
 
   getNombreTipoProyecto(idProyecto:number){
-
-    debugger;
-
-
 
     console.log(this.lst);
 

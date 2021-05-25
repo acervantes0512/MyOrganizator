@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProyectoComponent } from './proyecto/proyecto.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './usuario/perfil/profile.component';
 import { RegisterComponent } from './usuario/register/register.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'registro', component: RegisterComponent},
   { path: 'user', component: BoardUserComponent},
   { path: 'admin', component: BoardAdminComponent},
+  { path: 'navbar', component: NavbarComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
