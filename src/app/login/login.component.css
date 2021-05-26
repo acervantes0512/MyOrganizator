@@ -1,0 +1,20 @@
+.contenedor{
+    margin:auto;
+    width: 65%;
+    height: 430px;
+    border-radius: 10px;
+    border: 1x;
+    border-color: rgb(224, 223, 223);
+    border-style: solid;
+}
+
+.tarjetalogin{
+    margin: auto;
+    width: 80%;
+    border: none;
+}
+
+.img-login{
+    text-align: center;
+    margin-top: 4%;
+}

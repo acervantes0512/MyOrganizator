@@ -1,11 +1,14 @@
-<div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card img-fluid rounded-circle mr-2"
-        style="max-width: 100px;"
-      />
+<div class="col-md-12 contenedor">
+    <div class="card card-container tarjetalogin">
+
+      <div class="img-login">
+        <img
+          id="profile-img"
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          class="profile-img-card img-fluid rounded-circle mr-2 img-login"
+          style="max-width: 100px;"
+        />
+      </div>
       <form
         *ngIf="!isLoggedIn"
         name="form"

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProyectosService } from '../services/proyectos.service';
 import {Response } from '../Models/response';
 import { TipoProyectoService } from '../services/tipo-proyecto.service';
+import { TokenStorageService } from '../services/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proyectos',
@@ -13,13 +15,22 @@ export class ProyectosComponent implements OnInit {
   public lst: any[];
   constructor(
               private proyectosService: ProyectosService,
-              private tipoProyectoService: TipoProyectoService
+              private tipoProyectoService: TipoProyectoService,
+              private tokenStorage: TokenStorageService,
+              private router: Router
             )
    {
+
+    if(!this.tokenStorage.getUser()){
+      this.router.navigate(['/login']);
+    }else{
+      this.getProyectos();
+    }
+
+
    }
 
   ngOnInit(): void {
-    this.getProyectos();
 
   }
 

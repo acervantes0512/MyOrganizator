@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  usuario: Usuario;
+  //usuario: Usuario;
 
   constructor(
               private authService: AuthService, 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.usuario = this.tokenStorage.getUser();
+      //this.usuario = this.tokenStorage.getUser();
     }
   }
 
@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       data => {
-        console.log(data);
-        debugger
+
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
 

@@ -1,3 +1,4 @@
+import { R3TargetBinder } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../Models/usuario';
 
@@ -12,6 +13,7 @@ export class TokenStorageService {
   testUser = "No Loggin";
   user : Usuario | null ;
   data: any;
+  rta: string;
 
   constructor() { }
 
@@ -33,28 +35,14 @@ export class TokenStorageService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUser(): Usuario | null {
- 
+  public getUser(): string | null {
     const us = window.sessionStorage.getItem(USER_KEY);
-    //console.log(us);
-    //console.log(JSON.parse(us));
-    
-    this.data = JSON.parse(window.sessionStorage.getItem(USER_KEY));
-
-    console.log(this.data);
-    
 
     if(us){
-      
-      this.user = {nombre:this.data.nombre, rol:this.data.role}
-      console.log(this.user);
-      
-      return this.user;
+     return JSON.parse(window.sessionStorage.getItem(USER_KEY)).nombre;
     }
-    console.log("se vino por el null");
-    
-    return null;
 
+    return null;
   }
 
   public getUserTest(): string {
