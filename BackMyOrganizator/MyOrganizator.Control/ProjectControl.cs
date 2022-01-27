@@ -1,3 +1,5 @@
+using MyOrganizator.Data;
+using MyOrganizator.Data.Modelo;
 using MyOrganizator.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -19,13 +21,11 @@ namespace MyOrganizator.Control
     /// método usado solo para pruebas del front
     /// </summary>
     /// <returns></returns>
-    public List<Project> getAllProjects()
+    public List<Proyecto> getAllProjects(string nombreUsuario)
     {
-      if(this.myProjects.Count == 0)
-      {
-        this.initializeProjects();
-      }
-      return this.myProjects;
+      gestionDatos datos = new gestionDatos();
+
+      return datos.ProyectosPorIdUsuario(datos.ObtenerIdUsuario(nombreUsuario));
     }
 
     private void initializeProjects()

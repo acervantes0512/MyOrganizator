@@ -12,27 +12,30 @@ using MyOrganizator.Entities.Models.Response;
 
 namespace WebMyOrganizator.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProjectController : ControllerBase
+  [Route("api/[controller]")]
+  [ApiController]
+  public class ProjectController : ControllerBase
+  {
+    private readonly MyOrganizatorContext _context;
+
+    public ProjectController(MyOrganizatorContext context)
     {
-        private readonly MyOrganizatorContext _context;
+      _context = context;
+    }
 
-        public ProjectController(MyOrganizatorContext context)
-        {
-            _context = context;
-        }
-
-        [HttpGet]
-        public IActionResult Get()
+    [HttpGet("{nombreUsuario}")]
+        public IActionResult Get(string nombreUsuario)
         {
             Respuesta oRespuesta = new Respuesta();
             oRespuesta.Exito = 0;
             try {
 
               //oRespuesta.Data = this._context.Projects.ToList();
-              ProjectControl cProject = new ProjectControl(); 
-              oRespuesta.Data = cProject.getAllProjects();
+              ProjectControl cProject = new ProjectControl();
+              
+
+
+              oRespuesta.Data = cProject.getAllProjects(nombreUsuario);
 
                }
             catch (Exception ex)
@@ -45,8 +48,8 @@ namespace WebMyOrganizator.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        public IActionResult GetProyecto(long id)
+        [HttpGet("{id}/{nombreUsuario}")]
+        public IActionResult GetProyecto(long id, string nombreUsuario)
         {
             Respuesta oRespuesta = new Respuesta();
             oRespuesta.Exito = 0;
@@ -55,7 +58,7 @@ namespace WebMyOrganizator.Controllers
                 //oRespuesta.Data = this._context.Projects.Find(id);
 
                 ProjectControl cProject = new ProjectControl();
-                oRespuesta.Data = cProject.getAllProjects().FirstOrDefault(x => x.ProjectId == id);
+                oRespuesta.Data = cProject.getAllProjects(nombreUsuario).FirstOrDefault(x => x.IdProyecto == id);
 
       }
             catch (Exception ex)

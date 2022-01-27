@@ -2,11 +2,11 @@
 <div class="tarjeta" [routerLink]="['/proyecto',element.projectId]" *ngFor="let element of lst ">
 
   <div class="my-card">
-    <div class="my-card-head">{{ element.name }}</div>
+    <div class="my-card-head">{{ element.nombre }}</div>
     <div class="my-card-body">
       <div class="row">
         <div class="col-lg-9 text-body text-muted">
-          {{ element.description }}
+          {{ element.descripcion }}
         </div>
         <div class="col-lg-3 graph-card">
           <img src="assets\img\progreso.png" class="img-fluid" style="max-width: 150px;" >

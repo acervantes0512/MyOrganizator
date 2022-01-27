@@ -1,0 +1,1 @@
+Scaffold-DbContext "Data Source=ALEXC\SQLEXPRESS;Initial Catalog=MyOrganizator;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Modelo

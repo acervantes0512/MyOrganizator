@@ -8,7 +8,7 @@ import {Response } from '../Models/response';
 })
 export class ProyectosService {
 
-  url : string = 'https://localhost:44372/api/Project';
+  url : string = 'https://localhost:44372/api/Project/acervantes';
 
   constructor(
     private _http: HttpClient
