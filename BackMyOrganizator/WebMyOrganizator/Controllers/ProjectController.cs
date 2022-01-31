@@ -23,153 +23,170 @@ namespace WebMyOrganizator.Controllers
       _context = context;
     }
 
-    [HttpGet("{nombreUsuario}")]
-        public IActionResult Get(string nombreUsuario)
-        {
-            Respuesta oRespuesta = new Respuesta();
-            oRespuesta.Exito = 0;
-            try {
+    [HttpGet("obtenerTodosLosProyectos/{nombreUsuario}")]
+    public IActionResult Get(string nombreUsuario)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
 
-              //oRespuesta.Data = this._context.Projects.ToList();
-              ProjectControl cProject = new ProjectControl();
-              
-
-
-              oRespuesta.Data = cProject.getAllProjects(nombreUsuario);
-
-               }
-            catch (Exception ex)
-            {
-              oRespuesta.Exito = 1;
-              oRespuesta.Mensaje = ex.Message;
-            }
-
-            return Ok(oRespuesta);
-        }
-
-
-        [HttpGet("{id}/{nombreUsuario}")]
-        public IActionResult GetProyecto(long id, string nombreUsuario)
-        {
-            Respuesta oRespuesta = new Respuesta();
-            oRespuesta.Exito = 0;
-            try
-            {
-                //oRespuesta.Data = this._context.Projects.Find(id);
-
-                ProjectControl cProject = new ProjectControl();
-                oRespuesta.Data = cProject.getAllProjects(nombreUsuario).FirstOrDefault(x => x.IdProyecto == id);
+        ProjectControl cProject = new ProjectControl();
+        oRespuesta.Data = cProject.getAllProjects(nombreUsuario);
 
       }
-            catch (Exception ex)
-            {
-              oRespuesta.Exito = 1;
-              oRespuesta.Mensaje = ex.Message;
-            }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
 
-            return Ok(oRespuesta);
-        }
-
-        [HttpPost]
-        public IActionResult Add(ProjectRequest oModel)
-        {
-            Respuesta oRespuesta = new Respuesta();
-            oRespuesta.Exito = 0;
-
-            try
-            {
-
-                Project oProject = new Project();
-                oProject.ProjectId = oModel.ProjectId;
-                oProject.Name = oModel.Name;
-                oProject.Description = oModel.Description;
-                oProject.State = oModel.State;
-                oProject.Label = oModel.Label;
-                oProject.RegisterDate = oModel.RegisterDate;
-                oProject.StartDate = oModel.StartDate;
-                oProject.EndDate = oModel.EndDate;
-                oProject.ProjectTypeId = oModel.ProjectTypeId;
-                oProject.DistDayProjectId = oModel.DistDayProjectId;
-
-                this._context.Projects.Add(oProject);
-                this._context.SaveChanges();
-
-                oRespuesta.Exito = 1;
-
-            }
-            catch (Exception ex)
-            {
-                oRespuesta.Mensaje = ex.Message;
-            }
-
-            return Ok(oRespuesta);
-
-        }
+      return Ok(oRespuesta);
+    }
 
 
+    [HttpGet("obtenerProyectoPorId/{id}")]
+    public IActionResult GetProyecto(long id)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
 
-        [HttpPut]
-        public IActionResult Edit(ProjectRequest oModel)
-        {
-            Respuesta oRespuesta = new Respuesta();
-            oRespuesta.Exito = 0;
+        ProjectControl cProject = new ProjectControl();
+        oRespuesta.Data = cProject.obtenerProyectoPorId(Convert.ToString(id));
 
-            try
-            {
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
 
-                Project oProject = this._context.Projects.Find(oModel.ProjectId);
-                oProject.ProjectId = oModel.ProjectId;
-                oProject.Name = oModel.Name;
-                oProject.Description = oModel.Description;
-                oProject.State = oModel.State;
-                oProject.Label = oModel.Label;
-                oProject.RegisterDate = oModel.RegisterDate;
-                oProject.StartDate = oModel.StartDate;
-                oProject.EndDate = oModel.EndDate;
-                oProject.ProjectTypeId = oModel.ProjectTypeId;
-                oProject.DistDayProjectId = oModel.DistDayProjectId;
+      return Ok(oRespuesta);
+    }
 
-                this._context.Entry(oProject).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                this._context.SaveChanges();
+    [HttpGet("actividadesPorProyecto/{idProyecto}")]
+    public IActionResult Get(int idProyecto)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
 
-                oRespuesta.Exito = 1;
+        ProjectControl cProject = new ProjectControl();
+        oRespuesta.Data = cProject.obtenerActividadesPorProyecto(idProyecto);
 
-            }
-            catch (Exception ex)
-            {
-                oRespuesta.Mensaje = ex.Message;
-            }
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
 
-            return Ok(oRespuesta);
+      return Ok(oRespuesta);
+    }
 
-        }
+    [HttpPost]
+    public IActionResult Add(ProjectRequest oModel)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
 
+      try
+      {
 
-        [HttpDelete("{Id}")]
-        public IActionResult Delete(long Id)
-        {
-            Respuesta oRespuesta = new Respuesta();
-            oRespuesta.Exito = 0;
+        Project oProject = new Project();
+        oProject.ProjectId = oModel.ProjectId;
+        oProject.Name = oModel.Name;
+        oProject.Description = oModel.Description;
+        oProject.State = oModel.State;
+        oProject.Label = oModel.Label;
+        oProject.RegisterDate = oModel.RegisterDate;
+        oProject.StartDate = oModel.StartDate;
+        oProject.EndDate = oModel.EndDate;
+        oProject.ProjectTypeId = oModel.ProjectTypeId;
+        oProject.DistDayProjectId = oModel.DistDayProjectId;
 
-            try
-            {
+        this._context.Projects.Add(oProject);
+        this._context.SaveChanges();
 
-                Project oProject = this._context.Projects.Find(Id);
+        oRespuesta.Exito = 1;
 
-                this._context.Remove(oProject);
-                this._context.SaveChanges();
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Mensaje = ex.Message;
+      }
 
-                oRespuesta.Exito = 1;
-
-            }
-            catch (Exception ex)
-            {
-                oRespuesta.Mensaje = ex.Message;
-            }
-
-            return Ok(oRespuesta);
-
-        }
+      return Ok(oRespuesta);
 
     }
+
+
+
+    [HttpPut]
+    public IActionResult Edit(ProjectRequest oModel)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+
+      try
+      {
+
+        Project oProject = this._context.Projects.Find(oModel.ProjectId);
+        oProject.ProjectId = oModel.ProjectId;
+        oProject.Name = oModel.Name;
+        oProject.Description = oModel.Description;
+        oProject.State = oModel.State;
+        oProject.Label = oModel.Label;
+        oProject.RegisterDate = oModel.RegisterDate;
+        oProject.StartDate = oModel.StartDate;
+        oProject.EndDate = oModel.EndDate;
+        oProject.ProjectTypeId = oModel.ProjectTypeId;
+        oProject.DistDayProjectId = oModel.DistDayProjectId;
+
+        this._context.Entry(oProject).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        this._context.SaveChanges();
+
+        oRespuesta.Exito = 1;
+
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Mensaje = ex.Message;
+      }
+
+      return Ok(oRespuesta);
+
+    }
+
+
+    [HttpDelete("{Id}")]
+    public IActionResult Delete(long Id)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+
+      try
+      {
+
+        Project oProject = this._context.Projects.Find(Id);
+
+        this._context.Remove(oProject);
+        this._context.SaveChanges();
+
+        oRespuesta.Exito = 1;
+
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Mensaje = ex.Message;
+      }
+
+      return Ok(oRespuesta);
+
+    }
+
+  }
 }

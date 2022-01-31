@@ -6,7 +6,7 @@ import {Response } from '../Models/response';
 @Injectable({
   providedIn: 'root'
 })
-export class ProyectosService {
+export class ActividadesService {
 
   url : string = 'https://localhost:44372/api/Project/';
 
@@ -14,12 +14,8 @@ export class ProyectosService {
     private _http: HttpClient
   ) { }
 
-    getProyectos(username:string): Observable<Response> {
-        return this._http.get<Response>(this.url+'obtenerTodosLosProyectos/'+username);
+    obtenerActividadesPorProyecto(idProyecto:string): Observable<Response> {
+      return this._http.get<Response>(this.url+'actividadesPorProyecto/'+idProyecto);
     }
-
-    getProyecto(id:number): Observable<Response> {
-      return this._http.get<Response>(this.url+"obtenerProyectoPorId/"+id);
-  }
 
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProyectosService } from '../services/proyectos.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActividadesService } from '../services/actividades.service';
 
 declare interface TableData {
   headerRow: string[];
@@ -20,8 +21,9 @@ export class ProyectoComponent implements OnInit {
   title = 'appBootstrap';
   closeResult: string;
   model;
-  headerRow: string[];
+  public headerRow: string[];
   dataRows: string[][];
+  public listaActividades : any[];
 
    frmproyecto: FormGroup;
    submitted = false;
@@ -33,6 +35,7 @@ export class ProyectoComponent implements OnInit {
 
   constructor(private activateRoute: ActivatedRoute,
               private proyectoService: ProyectosService,
+              private actividadesService: ActividadesService,
               private modalService: NgbModal,
               private formBuilder: FormBuilder
               ) {
@@ -42,6 +45,8 @@ export class ProyectoComponent implements OnInit {
         this.proyecto = resp.data;
         console.log(this.proyecto);
       });
+
+      this.obtenerActividadesPorProyecto(params['id']);
 
     })
 
@@ -57,17 +62,7 @@ export class ProyectoComponent implements OnInit {
       mensaje: ['', [Validators.required, Validators.minLength(6)]]
     });
 
-    this.tableData1 = {
-      headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
-      dataRows: [
-          ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-          ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-          ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-          ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-          ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-          ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-      ]
-    }
+    this.headerRow = [ 'Nombre', 'Descripción', 'Duración', 'Fecha Inicio', 'Fecha Fin'];
 
   }
 
@@ -77,6 +72,12 @@ export class ProyectoComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+  }
+
+  obtenerActividadesPorProyecto(idProyecto:string){
+    this.actividadesService.obtenerActividadesPorProyecto(idProyecto).subscribe( response => {
+      this.listaActividades = response.data;
+    })
   }
 
   private getDismissReason(reason: any): string {

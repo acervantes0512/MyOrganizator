@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const AUTH_API = 'https://localhost:44372/api/auth/';
+const USERNAME = 'username';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,6 +28,11 @@ export class AuthService {
       email,
       password
     }, httpOptions);
+  }
+
+  public guardarNombreUsuario(username: string): void {
+    window.sessionStorage.removeItem(USERNAME);
+    window.sessionStorage.setItem(USERNAME, username);
   }
 
 

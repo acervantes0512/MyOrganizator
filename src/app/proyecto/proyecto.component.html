@@ -5,26 +5,26 @@
       <br><br>
       <div style="text-align: center;">
         <h6 class="titulo">
-          <h2>{{proyecto.name}}</h2>
+          <h2>{{proyecto.nombre}}</h2>
         </h6>
       </div>
 
       <br>
 
-      <p>{{proyecto.description}}</p>
+      <p>{{proyecto.descripcion}}</p>
 
       <div class="row">
         <div class="col-lg-6">
-          <label><b>Fecha Registro: </b> {{ proyecto.registerDate | date:'fullDate' }}</label>
+          <label><b>Fecha Registro: </b> {{ proyecto.fechaCreacion | date:'fullDate' }}</label>
         </div>
         <div class="col-lg-6">
-          <label><b>Fecha Inicio: </b>{{ proyecto.startDate | date:'fullDate' }}</label>
+          <label><b>Fecha Inicio: </b>{{ proyecto.fechaInicio | date:'fullDate' }}</label>
         </div>
         <div class="col-lg-6">
-          <label><b>Fecha Fin: </b>{{ proyecto.endDate | date:'fullDate' }}</label>
+          <label><b>Fecha Fin: </b>{{ proyecto.fechaFin | date:'fullDate' }}</label>
         </div>
         <div class="col-lg-6">
-          <label><b>Etiquetas: </b>{{ proyecto.Label}}</label>
+          <label><b>Etiquetas: </b>{{ proyecto.etiqueta}}</label>
         </div>
       </div>
     </div>
@@ -163,20 +163,28 @@
             <table class="table table-hover table-striped">
               <thead>
                 <tr>
-                  <th *ngFor="let cell of tableData1.headerRow">{{cell}}</th>
+                  <th *ngFor="let tittle of headerRow">{{tittle}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let row of tableData1.dataRows">
-                  <td *ngFor="let cell of row">{{cell}}</td>
+                <tr *ngFor="let row of listaActividades">
+                  <td>{{row.nombre}}</td>
+                  <td>{{row.descripcion}}</td>
+                  <td>{{row.duracionMinutos}}</td>
+                  <td>{{row.fechaInicio | date:'fullDate'}}</td>
+                  <td>{{row.fechaFin | date:'fullDate'}}</td>
                 </tr>
               </tbody>
+              
             </table>
+            <br><br>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 </div>

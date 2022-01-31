@@ -35,7 +35,8 @@ export class ProyectosComponent implements OnInit {
   }
 
   getProyectos(){
-    this.proyectosService.getProyectos().subscribe( response => {
+    var usuario = window.sessionStorage.getItem('username');
+    this.proyectosService.getProyectos(usuario).subscribe( response => {
       this.lst = response.data;
       //this.getNombreTipoProyecto();
     })

@@ -274,6 +274,12 @@ namespace MyOrganizator.Data.Modelo
 
                 entity.Property(e => e.IdUsuario).ValueGeneratedNever();
 
+                entity.Property(e => e.Alias)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('Alias')");
+
                 entity.Property(e => e.Clave)
                     .IsRequired()
                     .HasMaxLength(200)
@@ -285,6 +291,30 @@ namespace MyOrganizator.Data.Modelo
                     .IsRequired()
                     .HasMaxLength(200)
                     .IsUnicode(false);
+
+                entity.Property(e => e.PrimerApellido)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('PrimerApellido')");
+
+                entity.Property(e => e.PrimerNombre)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('PrimerNombre')");
+
+                entity.Property(e => e.SegundoApellido)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('SegundoApellido')");
+
+                entity.Property(e => e.SegundoNombre)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('SegundoNombre')");
 
                 entity.HasOne(d => d.IdRolNavigation)
                     .WithMany(p => p.Usuarios)

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MyOrganizator.Data
 {
-  public class gestionDatos
+  public class DatosProyecto
   {
     private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();
     public List<Proyecto> ProyectosPorIdUsuario(int idUser)
@@ -22,15 +22,11 @@ namespace MyOrganizator.Data
       return rta;
     }
 
-    public int ObtenerIdUsuario(string nombreUsuario)
+    public Proyecto obtenerProyectoPorId(string idProyecto)
     {
-
-        Usuario us = contextoBD.Usuarios
-          .Where(p => p.NombreUsuario == nombreUsuario).FirstOrDefault();
-
-      return us.IdUsuario;
-      
+      return contextoBD.Proyectos.Where(p => p.IdProyecto == Convert.ToInt32(idProyecto)).FirstOrDefault();
+          
     }
-
+ 
   }
 }
