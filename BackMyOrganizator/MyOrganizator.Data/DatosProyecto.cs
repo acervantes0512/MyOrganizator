@@ -24,8 +24,13 @@ namespace MyOrganizator.Data
 
     public Proyecto obtenerProyectoPorId(string idProyecto)
     {
-      return contextoBD.Proyectos.Where(p => p.IdProyecto == Convert.ToInt32(idProyecto)).FirstOrDefault();
-          
+      return contextoBD.Proyectos.Where(p => p.IdProyecto == Convert.ToInt32(idProyecto)).FirstOrDefault();          
+    }
+
+    public void crearProyecto(Proyecto nuevoProyecto)
+    {
+      contextoBD.Set<Proyecto>().Add(nuevoProyecto);
+      contextoBD.SaveChanges();
     }
  
   }

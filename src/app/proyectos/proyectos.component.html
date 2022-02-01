@@ -1,4 +1,7 @@
-
+<div style="text-align: right;  margin: auto; width:80%;">
+  <button class="btn btn-lg btn-outline-primary btn-nuevo" (click)="open(mymodal)">Nuevo Proyecto</button>
+</div>
+<br><br>
 <div class="tarjeta" [routerLink]="['/proyecto',element.idProyecto]" *ngFor="let element of lst ">
 
   <div class="my-card">
@@ -23,4 +26,110 @@
 
   <br><br>
 
+</div>
+
+<ng-template #mymodal let-modal>
+
+  <div class="modal-header" style="text-align: center;">
+    <h2 class="modal-title" style="margin: auto;"><b>Crear Nuevo Proyecto</b></h2>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+<div class="modal-body">
+  <div class="container">
+
+    <div class="starter-template">
+
+      <div class="row">
+
+        <div class="col-md-12 mt-5">
+
+
+
+          <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit(frmproyecto.value)">
+
+            <div class="form-group">
+              <label>Nombre del Proyecto</label>
+              <input type="text" formControlName="Nombre" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" />
+              <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+                <div *ngIf="f.Nombre.errors.required">Por favor ingresa el nombre del Proyecto</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Descripción</label>
+              <textarea formControlName="descripcionProyecto" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.descripcionProyecto.errors }" > </textarea>
+              <div *ngIf="submitted && f.descripcionProyecto.errors" class="invalid-feedback">
+                <div *ngIf="f.descripcionProyecto.errors.required">Por favor ingresa la descripción del proyecto</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Etiquetas</label>
+              <input type="text" formControlName="etiquetas" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.etiquetas.errors }" />
+              <div *ngIf="submitted && f.etiquetas.errors" class="invalid-feedback">
+                <div *ngIf="f.etiquetas.errors.required">Por favor ingresa al menos una etiqueta</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Porcentaje de Asignación</label>
+              <input type="text" formControlName="porcentajextipoproyecto" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.porcentajextipoproyecto.errors }" />
+              <div *ngIf="submitted && f.porcentajextipoproyecto.errors" class="invalid-feedback">
+                <div *ngIf="f.porcentajextipoproyecto.errors.required">Por favor ingrese el procentaje</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tipoProyecto"> Tipo de Proyecto</label>
+
+              <select class="form-control" formControlName="tipoProyecto"
+                [ngClass]="{ 'is-invalid': submitted && f.tipoProyecto.errors }">
+                <option value="">Seleccionar</option>
+                <option *ngFor="let tipoProyecto of tiposProyectos" value="{{tipoProyecto.idTipoProyecto}}">{{tipoProyecto.nombre}}</option>
+              </select>
+            </div>
+              <br>
+              
+              <div class="form-group">
+                <label for="fechaInicio">Fecha Inicio</label>
+                               
+                    <div class="input-group">
+                      <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                        #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                
+              </div>
+
+
+              <div *ngIf="submitted && f.tipoProyecto.errors" class="invalid-feedback">
+                <div *ngIf="f.tipoProyecto.errors.required">Por favor, Selecciona el tipoProyecto</div>
+              </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Aceptar</button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
 </div>

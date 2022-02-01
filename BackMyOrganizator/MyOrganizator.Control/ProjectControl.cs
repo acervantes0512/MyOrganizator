@@ -39,6 +39,11 @@ namespace MyOrganizator.Control
       return datosActividades.obtenerActividadesPorProyecto(idProyecto);
     }
 
+    public void crearProyecto(Proyecto nuevoProyecto)
+    {
+      this.datosProyecto.crearProyecto(nuevoProyecto);
+    }
+
     }
   
 }

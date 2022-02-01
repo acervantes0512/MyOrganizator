@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyOrganizator.Control;
-using MyOrganizator.Entities.Models;
+using MyOrganizator.Data.Modelo;
 using MyOrganizator.Entities.Models.Request;
 using MyOrganizator.Entities.Models.Response;
 
@@ -87,8 +87,8 @@ namespace WebMyOrganizator.Controllers
       return Ok(oRespuesta);
     }
 
-    [HttpPost]
-    public IActionResult Add(ProjectRequest oModel)
+    [HttpPost("crearProyecto")]
+    public IActionResult Add(Proyecto oModel)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;
@@ -96,20 +96,9 @@ namespace WebMyOrganizator.Controllers
       try
       {
 
-        Project oProject = new Project();
-        oProject.ProjectId = oModel.ProjectId;
-        oProject.Name = oModel.Name;
-        oProject.Description = oModel.Description;
-        oProject.State = oModel.State;
-        oProject.Label = oModel.Label;
-        oProject.RegisterDate = oModel.RegisterDate;
-        oProject.StartDate = oModel.StartDate;
-        oProject.EndDate = oModel.EndDate;
-        oProject.ProjectTypeId = oModel.ProjectTypeId;
-        oProject.DistDayProjectId = oModel.DistDayProjectId;
+        ProjectControl cProject = new ProjectControl();
 
-        this._context.Projects.Add(oProject);
-        this._context.SaveChanges();
+        cProject.crearProyecto(oModel);
 
         oRespuesta.Exito = 1;
 
@@ -125,7 +114,7 @@ namespace WebMyOrganizator.Controllers
 
 
 
-    [HttpPut]
+    /*[HttpPut]
     public IActionResult Edit(ProjectRequest oModel)
     {
       Respuesta oRespuesta = new Respuesta();
@@ -186,7 +175,7 @@ namespace WebMyOrganizator.Controllers
 
       return Ok(oRespuesta);
 
-    }
+    }*/
 
   }
 }
