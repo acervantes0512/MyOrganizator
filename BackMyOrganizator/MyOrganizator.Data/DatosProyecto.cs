@@ -6,6 +6,7 @@ using System.Text;
 
 namespace MyOrganizator.Data
 {
+
   public class DatosProyecto
   {
     private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();

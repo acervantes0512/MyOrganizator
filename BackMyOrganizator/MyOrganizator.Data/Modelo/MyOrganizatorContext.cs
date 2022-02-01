@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -121,8 +121,6 @@ namespace MyOrganizator.Data.Modelo
                     .HasName("PK__Proyecto__F4888673BA610081");
 
                 entity.ToTable("Proyecto");
-
-                entity.Property(e => e.IdProyecto).ValueGeneratedNever();
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()

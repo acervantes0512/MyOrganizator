@@ -20,7 +20,9 @@ export class ProyectosComponent implements OnInit {
   closeResult: string;
   frmproyecto: FormGroup;
   public tiposProyectos: any[];
-  model;
+  modelFechaInicio;
+  modelFechaFin;
+
 
   constructor(
               private proyectosService: ProyectosService,
@@ -44,12 +46,13 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.frmproyecto = this.formBuilder.group({
-      Nombre: ['', Validators.required],
+      nombreProyecto: ['', Validators.required],
       descripcionProyecto: ['', Validators.required],
       etiquetas: ['', Validators.required],
-      porcentajextipoproyecto: ['', Validators.required],
+      porcentajeAsignacion: ['', Validators.required],
       tipoProyecto: ['', Validators.required],
-      fechaInicio: ['', Validators.required]
+      fechaInicio: ['', Validators.required],
+      fechaFin: ['', Validators.required]
     });
 
     this.obtenerTiposProyecto();
@@ -107,9 +110,17 @@ export class ProyectosComponent implements OnInit {
   }
 
   onSubmit(datos){
-    datos.fechaInicio = '2022-01-06T17:16:40';
+    var x = datos['fechaInicio'];
+    var fechaI = x['day']+'/'+x['month']+'/'+x['year'];
+    x = datos['fechaFin'];
+    var fechaF = x['day']+'/'+x['month']+'/'+x['year'];
+    datos.fechaInicio = fechaI;
+    datos.fechaFin = fechaF;
+
     this.proyectosService.crearProyecto(datos).subscribe(x => {
-      console.log(x.data);
+      this.frmproyecto.reset();
+      this.modalService.dismissAll();
+      this.getProyectos();
       
     })
   }

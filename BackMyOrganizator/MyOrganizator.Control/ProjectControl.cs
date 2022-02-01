@@ -1,6 +1,7 @@
 using MyOrganizator.Data;
 using MyOrganizator.Data.Modelo;
 using MyOrganizator.Entities.Models;
+using MyOrganizator.Entities.Models.Request;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,6 @@ namespace MyOrganizator.Control
   public class ProjectControl
   {
 
-    List<Project> myProjects = new List<Project>();
     DatosProyecto datosProyecto = new DatosProyecto();
     DatosUsuario datosUsuario = new DatosUsuario();
     DatosActividades datosActividades = new DatosActividades();
@@ -39,9 +39,29 @@ namespace MyOrganizator.Control
       return datosActividades.obtenerActividadesPorProyecto(idProyecto);
     }
 
-    public void crearProyecto(Proyecto nuevoProyecto)
+    public void crearProyecto(RequestCrearProyecto nuevoProyecto)
     {
-      this.datosProyecto.crearProyecto(nuevoProyecto);
+      this.datosProyecto.crearProyecto(convertirPeticionCrear(nuevoProyecto));
+    }
+
+    private Proyecto convertirPeticionCrear(RequestCrearProyecto nuevoProyecto)
+    {
+      Proyecto p = new Proyecto();
+
+      p.Nombre = nuevoProyecto.nombreProyecto;
+      p.Descripcion = nuevoProyecto.descripcionProyecto;
+      p.DuracionMinutos = 5000;
+      p.FechaCreacion = DateTime.Now;
+      p.FechaInicio = Convert.ToDateTime(nuevoProyecto.fechaInicio);
+      p.FechaFin = Convert.ToDateTime(nuevoProyecto.fechaFin); // Calcular fecha fin
+      p.IdAsignacionProyecto = 1; // consultar el id
+      p.IdTipoProyecto = Convert.ToInt32(nuevoProyecto.tipoProyecto);
+      p.IdUsuario = 1; // traer Usuario
+      p.Etiqueta = nuevoProyecto.etiquetas;
+      p.Estado = true;
+
+      return p;
+
     }
 
     }

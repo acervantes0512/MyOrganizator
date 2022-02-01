@@ -88,7 +88,7 @@ namespace WebMyOrganizator.Controllers
     }
 
     [HttpPost("crearProyecto")]
-    public IActionResult Add(Proyecto oModel)
+    public IActionResult Add(RequestCrearProyecto peticion)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;
@@ -98,7 +98,7 @@ namespace WebMyOrganizator.Controllers
 
         ProjectControl cProject = new ProjectControl();
 
-        cProject.crearProyecto(oModel);
+        cProject.crearProyecto(peticion);
 
         oRespuesta.Exito = 1;
 

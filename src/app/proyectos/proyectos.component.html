@@ -53,10 +53,10 @@
 
             <div class="form-group">
               <label>Nombre del Proyecto</label>
-              <input type="text" formControlName="Nombre" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" />
-              <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
-                <div *ngIf="f.Nombre.errors.required">Por favor ingresa el nombre del Proyecto</div>
+              <input type="text" formControlName="nombreProyecto" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
+              <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
+                <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
               </div>
             </div>
 
@@ -80,10 +80,10 @@
 
             <div class="form-group">
               <label>Porcentaje de Asignación</label>
-              <input type="text" formControlName="porcentajextipoproyecto" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.porcentajextipoproyecto.errors }" />
-              <div *ngIf="submitted && f.porcentajextipoproyecto.errors" class="invalid-feedback">
-                <div *ngIf="f.porcentajextipoproyecto.errors.required">Por favor ingrese el procentaje</div>
+              <input type="text" formControlName="porcentajeAsignacion" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.porcentajeAsignacion.errors }" />
+              <div *ngIf="submitted && f.porcentajeAsignacion.errors" class="invalid-feedback">
+                <div *ngIf="f.porcentajeAsignacion.errors.required">Por favor ingrese el procentaje</div>
               </div>
             </div>
 
@@ -102,13 +102,23 @@
                 <label for="fechaInicio">Fecha Inicio</label>
                                
                     <div class="input-group">
-                      <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                      <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelFechaInicio" ngbDatepicker
                         #d="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                       </div>
-                    </div>
-                
+                    </div>              
+              </div>
+
+              <div class="form-group">
+                <label for="fechaFin">Fecha Fin</label>
+                               
+                    <div class="input-group">
+                      <input class="form-control" formControlName="fechaFin" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelFechaFin" ngbDatepicker #c="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
+                      </div>
+                    </div>              
               </div>
 
 
