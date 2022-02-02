@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TransversalService } from '../services/transversal.service';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { IProyecto } from '../shared/models/IProyecto';
 
 @Component({
   selector: 'app-proyectos',
@@ -52,7 +52,8 @@ export class ProyectosComponent implements OnInit {
       porcentajeAsignacion: ['', Validators.required],
       tipoProyecto: ['', Validators.required],
       fechaInicio: ['', Validators.required],
-      fechaFin: ['', Validators.required]
+      fechaFin: ['', Validators.required],
+      usuario: ['', Validators.required]
     });
 
     this.obtenerTiposProyecto();
@@ -116,6 +117,8 @@ export class ProyectosComponent implements OnInit {
     var fechaF = x['day']+'/'+x['month']+'/'+x['year'];
     datos.fechaInicio = fechaI;
     datos.fechaFin = fechaF;
+
+    datos.usuario = window.sessionStorage.getItem('username');
 
     this.proyectosService.crearProyecto(datos).subscribe(x => {
       this.frmproyecto.reset();

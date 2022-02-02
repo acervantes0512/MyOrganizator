@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Response } from '../Models/response';
+import { IProyecto } from '../shared/models/IProyecto';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class ProyectosService {
       return this._http.get<Response>(this.url+"obtenerProyectoPorId/"+id);
     }
 
-    crearProyecto(proyecto:any): Observable<Response>{
+    crearProyecto(proyecto:IProyecto): Observable<Response>{
       return this._http.post<Response>(this.url+"crearProyecto", proyecto)
     }
 

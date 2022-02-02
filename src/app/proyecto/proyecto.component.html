@@ -48,17 +48,10 @@
 
   <div class="modal-body">
     <div class="container">
-
       <div class="starter-template">
-
         <div class="row">
-
           <div class="col-md-12 mt-5">
-
-
-
             <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit()">
-
               <div class="form-group">
                 <label>Nombre del Proyecto</label>
                 <input type="text" formControlName="nombreProyecto" class="form-control"
@@ -129,26 +122,24 @@
               <div class="form-group">
                 <button class="btn btn-primary">Aceptar</button>
               </div>
-
             </form>
-
           </div>
-
-
         </div>
-
       </div>
-
     </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
   </div>
-
-
 </ng-template>
 
 <br>
+
+<!-- Sección Actividades -->
+
+<div style="text-align: right;">
+  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(modelActividades)">Nueva Actividad</button>
+</div>
 
 <div class="main-content">
   <div class="container-fluid">
@@ -185,6 +176,58 @@
   </div>
 </div>
 
+
+<ng-template #modelActividades let-modal>
+
+  <div class="modal-header" style="text-align: center;">
+    <h2 class="modal-title" style="margin: auto;"><b>Crear Nuevo Proyecto</b></h2>
+    <button type="button" class="close" aria-label="Close" (click)="modelActividades.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+  <div class="modal-body">
+    <div class="container">
+
+      <div class="starter-template">
+
+        <div class="row">
+
+          <div class="col-md-12 mt-5">
+
+
+
+            <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit(frmproyecto.value)">
+
+              <div class="form-group">
+                <label>Nombre del Proyecto</label>
+                <input type="text" formControlName="nombreProyecto" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
+                <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
+                  <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
+                </div>
+              </div>
+
+            
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
 
 
 </div>

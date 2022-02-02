@@ -12,16 +12,16 @@
           {{ element.descripcion }}
         </div>
         <div class="col-lg-3 graph-card">
-          <img src="assets\img\progreso.png" class="img-fluid" style="max-width: 150px;" >
+          <img src="assets\img\progreso.png" class="img-fluid" style="max-width: 150px;">
         </div>
       </div>
-      </div>
+    </div>
     <div class="my-card-footer">
       <button class="btn btn-primary btn-tarjet">Pausar</button>
       <button class="btn btn-primary btn-tarjet">Finalizar</button>
       <button class="btn btn-primary btn-tarjet">Cancelar</button>
     </div>
-    
+
   </div>
 
   <br><br>
@@ -38,87 +38,89 @@
   </div>
 
 
-<div class="modal-body">
-  <div class="container">
+  <div class="modal-body">
+    <div class="container">
 
-    <div class="starter-template">
+      <div class="starter-template">
 
-      <div class="row">
+        <div class="row">
 
-        <div class="col-md-12 mt-5">
+          <div class="col-md-12 mt-5">
 
 
 
-          <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit(frmproyecto.value)">
+            <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit(frmproyecto.value)">
 
-            <div class="form-group">
-              <label>Nombre del Proyecto</label>
-              <input type="text" formControlName="nombreProyecto" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
-              <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
-                <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
+              <div class="form-group">
+                <label>Nombre del Proyecto</label>
+                <input type="text" formControlName="nombreProyecto" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
+                <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
+                  <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label>Descripción</label>
-              <textarea formControlName="descripcionProyecto" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.descripcionProyecto.errors }" > </textarea>
-              <div *ngIf="submitted && f.descripcionProyecto.errors" class="invalid-feedback">
-                <div *ngIf="f.descripcionProyecto.errors.required">Por favor ingresa la descripción del proyecto</div>
+              <div class="form-group">
+                <label>Descripción</label>
+                <textarea formControlName="descripcionProyecto" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.descripcionProyecto.errors }"> </textarea>
+                <div *ngIf="submitted && f.descripcionProyecto.errors" class="invalid-feedback">
+                  <div *ngIf="f.descripcionProyecto.errors.required">Por favor ingresa la descripción del proyecto</div>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label>Etiquetas</label>
-              <input type="text" formControlName="etiquetas" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.etiquetas.errors }" />
-              <div *ngIf="submitted && f.etiquetas.errors" class="invalid-feedback">
-                <div *ngIf="f.etiquetas.errors.required">Por favor ingresa al menos una etiqueta</div>
+              <div class="form-group">
+                <label>Etiquetas</label>
+                <input type="text" formControlName="etiquetas" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.etiquetas.errors }" />
+                <div *ngIf="submitted && f.etiquetas.errors" class="invalid-feedback">
+                  <div *ngIf="f.etiquetas.errors.required">Por favor ingresa al menos una etiqueta</div>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label>Porcentaje de Asignación</label>
-              <input type="text" formControlName="porcentajeAsignacion" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.porcentajeAsignacion.errors }" />
-              <div *ngIf="submitted && f.porcentajeAsignacion.errors" class="invalid-feedback">
-                <div *ngIf="f.porcentajeAsignacion.errors.required">Por favor ingrese el procentaje</div>
+              <div class="form-group">
+                <label>Porcentaje de Asignación</label>
+                <input type="text" formControlName="porcentajeAsignacion" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.porcentajeAsignacion.errors }" />
+                <div *ngIf="submitted && f.porcentajeAsignacion.errors" class="invalid-feedback">
+                  <div *ngIf="f.porcentajeAsignacion.errors.required">Por favor ingrese el procentaje</div>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="tipoProyecto"> Tipo de Proyecto</label>
+              <div class="form-group">
+                <label for="tipoProyecto"> Tipo de Proyecto</label>
 
-              <select class="form-control" formControlName="tipoProyecto"
-                [ngClass]="{ 'is-invalid': submitted && f.tipoProyecto.errors }">
-                <option value="">Seleccionar</option>
-                <option *ngFor="let tipoProyecto of tiposProyectos" value="{{tipoProyecto.idTipoProyecto}}">{{tipoProyecto.nombre}}</option>
-              </select>
-            </div>
+                <select class="form-control" formControlName="tipoProyecto"
+                  [ngClass]="{ 'is-invalid': submitted && f.tipoProyecto.errors }">
+                  <option value="">Seleccionar</option>
+                  <option *ngFor="let tipoProyecto of tiposProyectos" value="{{tipoProyecto.idTipoProyecto}}">
+                    {{tipoProyecto.nombre}}</option>
+                </select>
+              </div>
               <br>
-              
+
               <div class="form-group">
                 <label for="fechaInicio">Fecha Inicio</label>
-                               
-                    <div class="input-group">
-                      <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelFechaInicio" ngbDatepicker
-                        #d="ngbDatepicker">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                      </div>
-                    </div>              
+
+                <div class="input-group">
+                  <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp"
+                    [(ngModel)]="modelFechaInicio" ngbDatepicker #d="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                  </div>
+                </div>
               </div>
 
               <div class="form-group">
                 <label for="fechaFin">Fecha Fin</label>
-                               
-                    <div class="input-group">
-                      <input class="form-control" formControlName="fechaFin" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="modelFechaFin" ngbDatepicker #c="ngbDatepicker">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
-                      </div>
-                    </div>              
+
+                <div class="input-group">
+                  <input class="form-control" formControlName="fechaFin" placeholder="yyyy-mm-dd" name="dp"
+                    [(ngModel)]="modelFechaFin" ngbDatepicker #c="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
+                  </div>
+                </div>
               </div>
 
 
@@ -126,20 +128,20 @@
                 <div *ngIf="f.tipoProyecto.errors.required">Por favor, Selecciona el tipoProyecto</div>
               </div>
 
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Aceptar</button>
-            </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+              </div>
 
-          </form>
+            </form>
+
+          </div>
 
         </div>
 
       </div>
 
     </div>
-
   </div>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>

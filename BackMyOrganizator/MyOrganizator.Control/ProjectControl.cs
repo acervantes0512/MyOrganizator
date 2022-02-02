@@ -56,7 +56,7 @@ namespace MyOrganizator.Control
       p.FechaFin = Convert.ToDateTime(nuevoProyecto.fechaFin); // Calcular fecha fin
       p.IdAsignacionProyecto = 1; // consultar el id
       p.IdTipoProyecto = Convert.ToInt32(nuevoProyecto.tipoProyecto);
-      p.IdUsuario = 1; // traer Usuario
+      p.IdUsuario = this.datosUsuario.ObtenerUsuarioPorUsername(nuevoProyecto.usuario).IdUsuario;
       p.Etiqueta = nuevoProyecto.etiquetas;
       p.Estado = true;
 

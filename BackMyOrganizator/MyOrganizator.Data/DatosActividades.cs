@@ -17,5 +17,11 @@ namespace MyOrganizator.Data
         .Where(x => x.IdProyecto == idProyecto).ToList();
     }
 
+    public void crearActividad(PlanActividad nuevaActividad)
+    {
+      contextoBD.Set<PlanActividad>().Add(nuevaActividad);
+      contextoBD.SaveChanges();
+    }
+
   }
 }

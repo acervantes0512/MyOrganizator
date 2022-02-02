@@ -21,6 +21,7 @@ export class ProyectoComponent implements OnInit {
   title = 'appBootstrap';
   closeResult: string;
   model;
+  modelActividades;
   public headerRow: string[];
   dataRows: string[][];
   public listaActividades : any[];

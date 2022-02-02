@@ -13,5 +13,6 @@ namespace MyOrganizator.Entities.Models.Request
     public string tipoProyecto { get; set; }
     public string fechaInicio { get; set; }
     public string fechaFin { get; set; }
+    public string usuario { get; set; }
   }
 }
