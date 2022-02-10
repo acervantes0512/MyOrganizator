@@ -4,6 +4,7 @@ import { ProyectosService } from '../services/proyectos.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActividadesService } from '../services/actividades.service';
+import { TransversalService } from '../services/transversal.service';
 
 declare interface TableData {
   headerRow: string[];
@@ -24,9 +25,12 @@ export class ProyectoComponent implements OnInit {
   modelActividades;
   modelFechaInicio;
   modelFechaFin;
+  frmActividad: FormGroup;
   public headerRow: string[];
   dataRows: string[][];
   public listaActividades : any[];
+  public listaTiposTiempo: any[];
+  public listaTiposActividad: any[];
 
    frmproyecto: FormGroup;
    submitted = false;
@@ -39,6 +43,7 @@ export class ProyectoComponent implements OnInit {
   constructor(private activateRoute: ActivatedRoute,
               private proyectoService: ProyectosService,
               private actividadesService: ActividadesService,
+              private transversalService: TransversalService,
               private modalService: NgbModal,
               private formBuilder: FormBuilder
               ) {
@@ -65,7 +70,20 @@ export class ProyectoComponent implements OnInit {
       mensaje: ['', [Validators.required, Validators.minLength(6)]]
     });
 
+    this.frmActividad = this.formBuilder.group({
+      nombreActividad: ['', Validators.required],
+      descripcionActividad: ['', Validators.required],
+      duracionMinutos: ['', Validators.required],
+      fechaInicio: ['', Validators.required],
+      fechaFin: ['', Validators.required],
+      tipoTiempo: ['', Validators.required],
+      tipoActividad: ['', Validators.required]
+    })
+
+
     this.headerRow = [ 'Nombre', 'Descripción', 'Duración', 'Fecha Inicio', 'Fecha Fin'];
+    this.obtenerTiposTiempo();
+    this.obtenerTiposActividad();
 
   }
 
@@ -81,6 +99,18 @@ export class ProyectoComponent implements OnInit {
     this.actividadesService.obtenerActividadesPorProyecto(idProyecto).subscribe( response => {
       this.listaActividades = response.data;
     })
+  }
+
+  obtenerTiposTiempo(){
+    this.transversalService.obtenerTiposTiempo().subscribe(x => {
+      this.listaTiposTiempo = x.data;
+    });
+  }
+
+  obtenerTiposActividad(){
+    this.transversalService.obtenerTiposActividad().subscribe(x => {
+      this.listaTiposActividad = x.data;
+    });
   }
 
   private getDismissReason(reason: any): string {

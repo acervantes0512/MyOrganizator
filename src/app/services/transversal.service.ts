@@ -17,4 +17,12 @@ export class TransversalService {
     return this._http.get<Response>(this._url+'obtenerTiposProyecto/');
   }
 
+  obtenerTiposTiempo():Observable<Response> {
+    return this._http.get<Response>(this._url+'obtenerTiposTiempo/');
+  }
+
+  obtenerTiposActividad():Observable<Response> {
+    return this._http.get<Response>(this._url+'obtenerTiposActividad/');
+  }
+
 }

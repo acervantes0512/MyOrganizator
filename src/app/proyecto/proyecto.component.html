@@ -138,7 +138,7 @@
 <!-- Sección Actividades -->
 
 <div style="text-align: right;">
-  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(modelActividades)">Nueva Actividad</button>
+  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(modalActividades)">Nueva Actividad</button>
 </div>
 
 <div class="main-content">
@@ -177,11 +177,11 @@
 </div>
 
 
-<ng-template #modelActividades let-modal>
+<ng-template #modalActividades let-modal>
 
   <div class="modal-header" style="text-align: center;">
     <h2 class="modal-title" style="margin: auto;"><b>Crear Actividad</b></h2>
-    <button type="button" class="close" aria-label="Close" (click)="modelActividades.dismiss('Cross click')">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -211,8 +211,8 @@
 
               <div class="form-group">
                 <label>Descripción</label>
-                <textArea formControlName="descripcionActividad" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.descripcionActividad.errors }"></textArea> />
+                <textarea formControlName="descripcionActividad" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.descripcionActividad.errors }"> </textarea>
                 <div *ngIf="submitted && f.descripcionActividad.errors" class="invalid-feedback">
                   <div *ngIf="f.descripcionActividad.errors.required">Por favor ingresa la descripción de la actividad</div>
                 </div>
@@ -256,7 +256,7 @@
                 <select class="form-control" formControlName="tipoTiempo"
                   [ngClass]="{ 'is-invalid': submitted && f.tipoTiempo.errors }">
                   <option value="">Seleccionar</option>
-                  <option *ngFor="let tipoTiempo of tiposTiempos"  value="{{tipoTiempo.IdTipoTiempo}}">{{tipoTiempo.Nombre}}</option>
+                  <option *ngFor="let tipoTiempo of listaTiposTiempo"  value="{{tipoTiempo.idTipoTiempo}}">{{tipoTiempo.nombre}}</option>
                 </select>
               </div>
 
@@ -266,10 +266,9 @@
                 <select class="form-control" formControlName="tipoActividad"
                   [ngClass]="{ 'is-invalid': submitted && f.tipoActividad.errors }">
                   <option value="">Seleccionar</option>
-                  <option *ngFor="let tipoActividad of tiposActividad"  value="{{tipoActividad.IdTipoActividad}}">{{tipoActividad.Nombre}}</option>
+                  <option *ngFor="let tipoActividad of listaTiposActividad"  value="{{tipoActividad.idTipoActividad}}">{{tipoActividad.nombre}}</option>
                 </select>
               </div>
-
             
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
