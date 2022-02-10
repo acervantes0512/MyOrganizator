@@ -19,6 +19,7 @@ export class ProyectosComponent implements OnInit {
   public lst: any[];
   closeResult: string;
   frmproyecto: FormGroup;
+  frmActividad: FormGroup;
   public tiposProyectos: any[];
   modelFechaInicio;
   modelFechaFin;
@@ -45,6 +46,7 @@ export class ProyectosComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
     this.frmproyecto = this.formBuilder.group({
       nombreProyecto: ['', Validators.required],
       descripcionProyecto: ['', Validators.required],
@@ -55,6 +57,12 @@ export class ProyectosComponent implements OnInit {
       fechaFin: ['', Validators.required],
       usuario: ['', Validators.required]
     });
+
+    this.frmActividad = this.formBuilder.group({
+      nombreActividad: ['', Validators.required],
+      tipoTiempo: ['', Validators.required],
+      tipoActividad: ['', Validators.required]
+    })
 
     this.obtenerTiposProyecto();
   }

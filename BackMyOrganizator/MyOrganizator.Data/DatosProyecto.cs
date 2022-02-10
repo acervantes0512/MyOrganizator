@@ -33,6 +33,6 @@ namespace MyOrganizator.Data
       contextoBD.Set<Proyecto>().Add(nuevoProyecto);
       contextoBD.SaveChanges();
     }
- 
+
   }
 }

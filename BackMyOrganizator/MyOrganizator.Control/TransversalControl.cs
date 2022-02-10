@@ -14,7 +14,17 @@ namespace MyOrganizator.Control
     public List<TipoProyecto> ObtenerTiposProyectos()
     {
       return datosTransversal.ObtenerTiposProyectos();
-    } 
+    }
+
+    public List<TipoActividad> ObtenerTiposActividad()
+    {
+      return datosTransversal.ObtenerTiposActividad();
+    }
+
+    public List<TipoTiempo> ObtenerTiposTiempo()
+    {
+      return datosTransversal.ObtenerTiposTiempo();
+    }
 
   }
 }

@@ -43,6 +43,48 @@ namespace WebMyOrganizator.Controllers
       return Ok(oRespuesta);
     }
 
+    [HttpGet("obtenerTiposTiempo")]
+    public IActionResult GetTiposTiempo()
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
+
+        TransversalControl cProject = new TransversalControl();
+        oRespuesta.Data = cProject.ObtenerTiposTiempo();
+
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
+
+      return Ok(oRespuesta);
+    }
+
+    [HttpGet("obtenerTiposActividad")]
+    public IActionResult GetTiposActividad()
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
+
+        TransversalControl cProject = new TransversalControl();
+        oRespuesta.Data = cProject.ObtenerTiposActividad();
+
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
+
+      return Ok(oRespuesta);
+    }
+
 
 
   }

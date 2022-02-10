@@ -22,6 +22,8 @@ export class ProyectoComponent implements OnInit {
   closeResult: string;
   model;
   modelActividades;
+  modelFechaInicio;
+  modelFechaFin;
   public headerRow: string[];
   dataRows: string[][];
   public listaActividades : any[];

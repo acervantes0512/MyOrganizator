@@ -17,5 +17,15 @@ namespace MyOrganizator.Data
       return contextoBD.TipoProyectos.ToList();
     }
 
+    public List<TipoTiempo> ObtenerTiposTiempo()
+    {
+      return contextoBD.TipoTiempos.ToList();
+    }
+
+    public List<TipoActividad> ObtenerTiposActividad()
+    {
+      return contextoBD.TipoActividads.ToList();
+    }
+
   }
 }

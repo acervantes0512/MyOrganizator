@@ -180,7 +180,7 @@
 <ng-template #modelActividades let-modal>
 
   <div class="modal-header" style="text-align: center;">
-    <h2 class="modal-title" style="margin: auto;"><b>Crear Nuevo Proyecto</b></h2>
+    <h2 class="modal-title" style="margin: auto;"><b>Crear Actividad</b></h2>
     <button type="button" class="close" aria-label="Close" (click)="modelActividades.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -198,15 +198,76 @@
 
 
 
-            <form [formGroup]="frmproyecto" (ngSubmit)="onSubmit(frmproyecto.value)">
+            <form [formGroup]="frmActividad" (ngSubmit)="onSubmitActividad(frmActividad.value)">
 
               <div class="form-group">
-                <label>Nombre del Proyecto</label>
-                <input type="text" formControlName="nombreProyecto" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.nombreProyecto.errors }" />
-                <div *ngIf="submitted && f.nombreProyecto.errors" class="invalid-feedback">
-                  <div *ngIf="f.nombreProyecto.errors.required">Por favor ingresa el nombre del Proyecto</div>
+                <label>Nombre Actividad</label>
+                <input type="text" formControlName="nombreActividad" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.nombreActividad.errors }" />
+                <div *ngIf="submitted && f.nombreActividad.errors" class="invalid-feedback">
+                  <div *ngIf="f.nombreActividad.errors.required">Por favor ingresa el nombre de la actividad</div>
                 </div>
+              </div>
+
+              <div class="form-group">
+                <label>Descripción</label>
+                <textArea formControlName="descripcionActividad" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.descripcionActividad.errors }"></textArea> />
+                <div *ngIf="submitted && f.descripcionActividad.errors" class="invalid-feedback">
+                  <div *ngIf="f.descripcionActividad.errors.required">Por favor ingresa la descripción de la actividad</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Duración en Minutos</label>
+                <input type="text" formControlName="duracionMinutos" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.duracionMinutos.errors }" />
+                <div *ngIf="submitted && f.duracionMinutos.errors" class="invalid-feedback">
+                  <div *ngIf="f.duracionMinutos.errors.required">Por favor ingresa la duración de la actividad</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="fechaInicio">Fecha Inicio</label>
+
+                <div class="input-group">
+                  <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp"
+                    [(ngModel)]="modelFechaInicio" ngbDatepicker #d="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="fechaFin">Fecha Fin</label>
+
+                <div class="input-group">
+                  <input class="form-control" formControlName="fechaFin" placeholder="yyyy-mm-dd" name="dp"
+                    [(ngModel)]="modelFechaFin" ngbDatepicker #c="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tipoTiempo">Tipo de Tiempo</label>
+                <select class="form-control" formControlName="tipoTiempo"
+                  [ngClass]="{ 'is-invalid': submitted && f.tipoTiempo.errors }">
+                  <option value="">Seleccionar</option>
+                  <option *ngFor="let tipoTiempo of tiposTiempos"  value="{{tipoTiempo.IdTipoTiempo}}">{{tipoTiempo.Nombre}}</option>
+                </select>
+              </div>
+
+              
+              <div class="form-group">
+                <label for="tipoActividad">Tipo de Tiempo</label>
+                <select class="form-control" formControlName="tipoActividad"
+                  [ngClass]="{ 'is-invalid': submitted && f.tipoActividad.errors }">
+                  <option value="">Seleccionar</option>
+                  <option *ngFor="let tipoActividad of tiposActividad"  value="{{tipoActividad.IdTipoActividad}}">{{tipoActividad.Nombre}}</option>
+                </select>
               </div>
 
             
