@@ -6,7 +6,7 @@ namespace MyOrganizator.Entities.Models.Request
 {
   public class RequestCrearActividad
   {
-    public string Nombre { get; set; }
+    public string NombreActividad { get; set; }
     public string Descripcion { get; set; }
     public string DuracionMinutos { get; set; }
     public string FechaInicio { get; set; }

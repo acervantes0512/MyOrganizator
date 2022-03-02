@@ -3,12 +3,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-
+        <li class="myitem" routerLink="/proyectos">Mi día</li>
+        <li class="myitem" routerLink="/proyectos">Proyectos</li>
+        <li class="myitem" routerLink="/actividades">Actividades</li>
+        <li *ngIf = "!token.getUser()" class="myitem" routerLink="/login"><a>Iniciar Sesión</a></li>
         <li class="nav-item dropdown">
-          <a *ngIf = "!token.getUser()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="assets\img\user-default.jpg" class="img-fluid rounded-circle avatar mr-2" >
-             Iniciar Sesión
-          </a>
 
           <a *ngIf = "token.getUser()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="assets\img\user-default.jpg" class="img-fluid rounded-circle avatar mr-2" >
@@ -20,8 +19,6 @@
             <a *ngIf = "token.getUser()" class="dropdown-item" href="#">Parametrizaciones</a>
             <div *ngIf = "token.getUser()" class="dropdown-divider"></div>
             <a *ngIf = "token.getUser()" class="dropdown-item" (click) = "Logout()" href="#" >Cerrar Sesión</a>
-
-            <a *ngIf = "!token.getUser()" class="dropdown-item" routerLink="/login" >Iniciar Sesión</a>
 
           </div>
         </li>

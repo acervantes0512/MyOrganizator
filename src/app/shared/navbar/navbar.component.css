@@ -1,3 +1,18 @@
 .avatar{
     max-width: 35px;
 }
+
+.mynavbar {
+    background-color: gray;
+    display: inline;
+}
+
+.myitem {
+    margin: 15px;
+    cursor: pointer;
+}
+
+.container {
+    background-color: aqua;
+    width: 100%;
+}

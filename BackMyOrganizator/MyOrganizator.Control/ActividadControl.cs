@@ -20,7 +20,7 @@ namespace MyOrganizator.Control
     private PlanActividad mapearDatosPeticion(RequestCrearActividad peticion)
     {
       PlanActividad p = new PlanActividad();
-      p.Nombre = peticion.Nombre;
+      p.Nombre = peticion.NombreActividad;
       p.Descripcion = peticion.Descripcion;
       p.DuracionMinutos = Convert.ToInt32(peticion.DuracionMinutos);
       p.FechaInicio = Convert.ToDateTime(peticion.FechaInicio);
