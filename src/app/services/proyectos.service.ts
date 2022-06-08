@@ -27,4 +27,8 @@ export class ProyectosService {
       return this._http.post<Response>(this.url+"crearProyecto", proyecto)
     }
 
+    eliminarProyecto(id:number): Observable<Response>{
+      return this._http.delete<Response>(this.url+id);
+    }
+
 }

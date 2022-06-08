@@ -1,11 +1,10 @@
 .contenedor{
-    margin:auto;
-    width: 65%;
+    margin:50px auto;
+    width: 45%;
     height: 430px;
     border-radius: 10px;
-    border: 1x;
-    border-color: rgb(224, 223, 223);
-    border-style: solid;
+    border: 2px solid black;
+    background: linear-gradient(rgb(255, 254, 254),rgb(16, 182, 146))
 }
 
 .tarjetalogin{
@@ -18,3 +17,23 @@
     text-align: center;
     margin-top: 4%;
 }
+
+.credentials {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.boton_iniciar {
+    background-color: rgb(10, 31, 11);
+    color: white;
+    margin-top: 30px;
+    width: 80%;
+    height: 50px;
+    border-radius: 2px;
+}
+
+.boton_iniciar:hover {
+    background-color: rgb(38, 41, 38);
+}
+

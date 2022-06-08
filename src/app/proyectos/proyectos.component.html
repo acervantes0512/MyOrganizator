@@ -2,11 +2,12 @@
   <button class="btn btn-lg btn-outline-primary btn-nuevo" (click)="open(mymodal)">Nuevo Proyecto</button>
 </div>
 <br><br>
-<div class="tarjeta" [routerLink]="['/proyecto',element.idProyecto]" *ngFor="let element of lst ">
 
+
+<div class="tarjeta" *ngFor="let element of lst; let i = index " value="element.idProyecto">
   <div class="my-card">
     <div class="my-card-head">{{ element.nombre }}</div>
-    <div class="my-card-body">
+    <div class="my-card-body" [routerLink]="['/proyecto',element.idProyecto]">
       <div class="row">
         <div class="col-lg-9 text-body text-muted">
           {{ element.descripcion }}
@@ -19,7 +20,7 @@
     <div class="my-card-footer">
       <button class="btn btn-primary btn-tarjet">Pausar</button>
       <button class="btn btn-primary btn-tarjet">Finalizar</button>
-      <button class="btn btn-primary btn-tarjet">Cancelar</button>
+      <button class="btn btn-primary btn-tarjet" (click)="eliminarProyecto(i)">Eliminar</button>
     </div>
 
   </div>

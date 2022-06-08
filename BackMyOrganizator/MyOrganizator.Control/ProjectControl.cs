@@ -64,6 +64,11 @@ namespace MyOrganizator.Control
 
     }
 
+    public void eliminarProyecto(int idProyecto)
+    {
+      this.datosProyecto.eliminarProyecto(idProyecto);
+    }
+
     }
   
 }

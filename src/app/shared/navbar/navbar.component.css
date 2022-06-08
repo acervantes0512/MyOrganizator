@@ -5,6 +5,7 @@
 .mynavbar {
     background-color: gray;
     display: inline;
+    font-weight: bold;
 }
 
 .myitem {
@@ -13,6 +14,7 @@
 }
 
 .container {
-    background-color: aqua;
+    background:linear-gradient(#bbb,#fff);
     width: 100%;
+    border-radius: 5px;
 }

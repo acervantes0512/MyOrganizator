@@ -128,4 +128,12 @@ export class ProyectosComponent implements OnInit {
     })
   }
 
+  eliminarProyecto(indexProyecto:number){
+    var proyecto = this.lst[indexProyecto];
+    this.proyectosService.eliminarProyecto(proyecto.idProyecto).subscribe( response => {
+      this.getProyectos();
+    })
+
+  }
+
 }

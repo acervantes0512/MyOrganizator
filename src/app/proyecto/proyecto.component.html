@@ -1,38 +1,38 @@
-<div class="tarjeta border">
-
+<i class="fa-regular fa-pen"></i>
+<div class="tarjet border">
   <form>
-    <div class="contenedorform">
-      <br><br>
-      <div style="text-align: center;">
-        <h6 class="titulo">
-          <h2>{{proyecto.nombre}}</h2>
-        </h6>
+    <div class="bodyProject">
+      <div class="btn_icon">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </div>
+      <div  class="titulo">        
+          <h2>{{proyecto.nombre}}</h2>        
       </div>
 
-      <br>
+      
+      <div class="descripcion">
+        <p><b>Descripción:</b> {{proyecto.descripcion}}</p>
+      </div>
 
-      <p>{{proyecto.descripcion}}</p>
+      <div class="bodyContenido"> 
 
-      <div class="row">
-        <div class="col-lg-6">
+        <section class="bodyContenido_Left">
           <label><b>Fecha Registro: </b> {{ proyecto.fechaCreacion | date:'fullDate' }}</label>
-        </div>
-        <div class="col-lg-6">
-          <label><b>Fecha Inicio: </b>{{ proyecto.fechaInicio | date:'fullDate' }}</label>
-        </div>
-        <div class="col-lg-6">
+          <label><b>Fecha Inicio: </b>{{ proyecto.fechaInicio | date:'fullDate' }}</label>        
+        </section>
+
+        <section class="bodyContenido_Right">
           <label><b>Fecha Fin: </b>{{ proyecto.fechaFin | date:'fullDate' }}</label>
-        </div>
-        <div class="col-lg-6">
-          <label><b>Etiquetas: </b>{{ proyecto.etiqueta}}</label>
-        </div>
+          <label class="etiqueta"><b>Etiquetas: </b>{{ proyecto.etiqueta}}</label>          
+        </section>
+
       </div>
     </div>
   </form>
 
 <br><br>
 <div style="text-align: right;">
-  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(mymodal)">Editar</button>
+  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(mymodal)">Editar</button>  
 </div>
 <br>
 
@@ -189,15 +189,9 @@
 
   <div class="modal-body">
     <div class="container">
-
       <div class="starter-template">
-
         <div class="row">
-
           <div class="col-md-12 mt-5">
-
-
-
             <form [formGroup]="frmActividad" (ngSubmit)="onSubmitActividad(frmActividad.value)">
 
               <div class="form-group">

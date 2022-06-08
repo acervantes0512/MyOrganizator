@@ -95,21 +95,15 @@ namespace WebMyOrganizator.Controllers
 
       try
       {
-
         ProjectControl cProject = new ProjectControl();
-
         cProject.crearProyecto(peticion);
-
         oRespuesta.Exito = 1;
-
       }
       catch (Exception ex)
       {
         oRespuesta.Mensaje = ex.Message;
       }
-
       return Ok(oRespuesta);
-
     }
 
 
@@ -149,10 +143,10 @@ namespace WebMyOrganizator.Controllers
       return Ok(oRespuesta);
 
     }
-
+    */
 
     [HttpDelete("{Id}")]
-    public IActionResult Delete(long Id)
+    public IActionResult Delete(int Id)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;
@@ -160,11 +154,8 @@ namespace WebMyOrganizator.Controllers
       try
       {
 
-        Project oProject = this._context.Projects.Find(Id);
-
-        this._context.Remove(oProject);
-        this._context.SaveChanges();
-
+        ProjectControl cProject = new ProjectControl();
+        cProject.eliminarProyecto(Id);
         oRespuesta.Exito = 1;
 
       }
@@ -175,7 +166,7 @@ namespace WebMyOrganizator.Controllers
 
       return Ok(oRespuesta);
 
-    }*/
+    }
 
   }
 }

@@ -35,6 +35,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
     RegisterComponent,
     BoardUserComponent,
     BoardAdminComponent
+    
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,24 +1,61 @@
-.tarjeta{
+.tarjet{
+  width: 83%;
   margin: auto;
-  width: 90%;
+  background-color: honeydew;
 }
 
-.contenedorform{
+.bodyProject{
   margin: auto;
-  width: 80%;
+  width: 95%;
   height: 90%;
+  margin-top: 35px;
 }
 
 .bordes{
   border: black;
 }
 
+.bodyContenido {  
+  margin: auto;
+  display: flex;
+  text-align: justify;
+  width: 95%;
+  
+}
+
+.bodyContenido > label {
+  margin: 10px;
+  display: flexbox;
+}
+
+.bodyContenido_Left {
+  padding: 10px;
+}
+
+.bodyContenido_Right {
+  padding: 10px;
+}
+
+.descripcion {
+  width: 95%;
+  margin: auto;
+  text-align: justify;
+}
+
 .titulo{
   margin:0px auto;
+  padding: 10px;
+  
 }
 
 .btnmodal{
   margin: auto;
   width: 20%;
   margin-right: 5%;
+}
+
+.btn_icon {
+  text-align: right;
+  padding: 2px;
+  width: 100%;
 }

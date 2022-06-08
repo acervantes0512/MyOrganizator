@@ -16,7 +16,7 @@ namespace MyOrganizator.Data
       using (var context = new MyOrganizatorContext())
       {
         var proyecto = context.Proyectos
-          .Where(p => p.IdUsuario == idUser).ToList();
+          .Where(p => p.IdUsuario == idUser && p.Estado).ToList();
         rta = proyecto;
       }
 
@@ -32,6 +32,18 @@ namespace MyOrganizator.Data
     {
       contextoBD.Set<Proyecto>().Add(nuevoProyecto);
       contextoBD.SaveChanges();
+    }
+
+    public void eliminarProyecto(int idProyecto)
+    {
+      /*var obj = (from p in contextoBD.Proyectos
+                   where p.IdProyecto == Convert.ToInt32(idProyecto)
+                   select p).Single();*/
+      Proyecto obj = contextoBD.Proyectos.Find(idProyecto);
+      obj.Estado = false;
+      contextoBD.Proyectos.Update(obj);
+      contextoBD.SaveChanges();
+
     }
 
   }
