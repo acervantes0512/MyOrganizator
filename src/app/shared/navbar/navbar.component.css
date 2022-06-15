@@ -3,9 +3,10 @@
 }
 
 .mynavbar {
-    background-color: gray;
-    display: inline;
+    background:linear-gradient(rgb(59, 173, 116),honeydew);
     font-weight: bold;
+    height: 100px;
+    width: 100%;
 }
 
 .myitem {
@@ -14,7 +15,11 @@
 }
 
 .container {
-    background:linear-gradient(#bbb,#fff);
-    width: 100%;
+    background:linear-gradient(rgb(59, 173, 116),honeydew);
     border-radius: 5px;
+    width: 100%;
+}
+
+#navbarSupportedContent{
+    width: 100%;
 }

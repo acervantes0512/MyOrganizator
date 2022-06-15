@@ -1,10 +1,11 @@
-<i class="fa-regular fa-pen"></i>
 <div class="tarjet border">
   <form>
     <div class="bodyProject">
-      <div class="btn_icon">
+
+      <button class="button-icon" (click)="open(mymodal)">
         <i class="fa-solid fa-pen-to-square"></i>
-      </div>
+      </button>
+      
       <div  class="titulo">        
           <h2>{{proyecto.nombre}}</h2>        
       </div>
@@ -18,11 +19,12 @@
 
         <section class="bodyContenido_Left">
           <label><b>Fecha Registro: </b> {{ proyecto.fechaCreacion | date:'fullDate' }}</label>
-          <label><b>Fecha Inicio: </b>{{ proyecto.fechaInicio | date:'fullDate' }}</label>        
+          <label><b>Fecha Fin: </b>{{ proyecto.fechaFin | date:'fullDate' }}</label>
+          
         </section>
 
         <section class="bodyContenido_Right">
-          <label><b>Fecha Fin: </b>{{ proyecto.fechaFin | date:'fullDate' }}</label>
+          <label><b>Fecha Inicio: </b>{{ proyecto.fechaInicio | date:'fullDate' }}</label>        
           <label class="etiqueta"><b>Etiquetas: </b>{{ proyecto.etiqueta}}</label>          
         </section>
 
@@ -30,11 +32,6 @@
     </div>
   </form>
 
-<br><br>
-<div style="text-align: right;">
-  <button class="btnmodal btn btn-lg btn-outline-primary" (click)="open(mymodal)">Editar</button>  
-</div>
-<br>
 
 <ng-template #mymodal let-modal>
 

@@ -1,30 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-white">
-  <div class="container">
+<div class="mynavbar">
+  <nav class="navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="myitem" routerLink="/proyectos">My day</li>
+          <li class="myitem" routerLink="/proyectos">Projects</li>
+          <li class="myitem" routerLink="/actividades">Activities</li>
+          <li *ngIf="!token.getUser()" class="myitem" routerLink="/login">
+            <a>Login</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              *ngIf="token.getUser()"
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="assets\img\user-default.jpg"
+                class="img-fluid rounded-circle avatar mr-2"
+              />
+              {{ token.getUser() }}
+            </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-        <li class="myitem" routerLink="/proyectos">My day</li>
-        <li class="myitem" routerLink="/proyectos">Projects</li>
-        <li class="myitem" routerLink="/actividades">Activities</li>
-        <li *ngIf = "!token.getUser()" class="myitem" routerLink="/login"><a>Login</a></li>
-        <li class="nav-item dropdown">
-
-          <a *ngIf = "token.getUser()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="assets\img\user-default.jpg" class="img-fluid rounded-circle avatar mr-2" >
-              {{token.getUser()}}
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a *ngIf = "token.getUser()" class="dropdown-item" routerLink="/login" >Profile</a>
-            <a *ngIf = "token.getUser()" class="dropdown-item" href="#">Parameters</a>
-            <div *ngIf = "token.getUser()" class="dropdown-divider"></div>
-            <a *ngIf = "token.getUser()" class="dropdown-item" (click) = "Logout()" href="#" >Logout</a>
-
-          </div>
-        </li>
-
-      </ul>
-
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a
+                *ngIf="token.getUser()"
+                class="dropdown-item"
+                routerLink="/login"
+                >Profile</a
+              >
+              <a *ngIf="token.getUser()" class="dropdown-item" href="#"
+                >Parameters</a
+              >
+              <div *ngIf="token.getUser()" class="dropdown-divider"></div>
+              <a
+                *ngIf="token.getUser()"
+                class="dropdown-item"
+                (click)="Logout()"
+                href="#"
+                >Logout</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>

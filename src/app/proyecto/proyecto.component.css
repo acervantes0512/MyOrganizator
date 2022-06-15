@@ -18,28 +18,45 @@
 .bodyContenido {  
   margin: auto;
   display: flex;
-  text-align: justify;
+  text-align: left;
   width: 95%;
-  
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.bodyContenido > label {
-  margin: 10px;
-  display: flexbox;
+.bodyContenido > label {  
+  text-align: left;
+  padding:10px;  
 }
 
 .bodyContenido_Left {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+.bodyContenido_Left > label {
+  padding:5px;
+  
 }
 
 .bodyContenido_Right {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+.bodyContenido_Right > label {
+  padding:5px;
 }
 
 .descripcion {
   width: 95%;
   margin: auto;
-  text-align: justify;
+  text-align: left;
+  padding: 15px;
 }
 
 .titulo{
@@ -54,8 +71,11 @@
   margin-right: 5%;
 }
 
-.btn_icon {
+.button-icon {
+  border: none;
+  outline: none;
   text-align: right;
   padding: 2px;
   width: 100%;
+  background-color: honeydew;
 }

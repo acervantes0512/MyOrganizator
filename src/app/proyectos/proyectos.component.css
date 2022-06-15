@@ -75,3 +75,89 @@
 .btn-nuevo{
   text-align: right ;
 }
+
+.container-modal {
+  padding: 2%;
+}
+
+.container-modal_line {
+  display: flex;
+  padding: 5px;
+  justify-content: space-around;
+
+}
+
+.container-modal_line > label {
+  width: 25%;
+}
+
+.container-modal_line >input, textarea, select, input {
+  width: 75%;
+}
+
+.container_modal_line__fechas {  
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.container_modal_line_fechas__seccion {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_modal_line_fechas__seccion > label {
+  width: 20%;
+  margin: auto;
+}
+
+.container_modal_line_fechas_seccion_vigencias{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.container_modal_line_fechas_seccion_vigencias > label{
+  margin: auto;
+  font-size: 2.6rem;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.container_modal_line_fechas_seccion_vigencias_fec {
+  display: flex;
+  border: 1px gray;
+  width: 45%;
+}
+
+.container_modal_line_fechas_seccion_vigencias_fec > label{
+  margin: auto;
+  width: 50%;
+}
+
+.btn_modal {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn_modal_accept {
+  width: 50%;
+}
+
+.button_add {  
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: honeydew; 
+}
+
+.button_add > button{
+  border:none;
+  background-color: honeydew;  
+}
+
+.bodyProject{
+  background-color: honeydew;
+}
