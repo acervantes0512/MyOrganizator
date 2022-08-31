@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProyectosService } from '../services/proyectos.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActividadesService } from '../services/actividades.service';
 import { TransversalService } from '../services/transversal.service';
-
+import { IProyecto } from '../shared/models/IProyecto';
 declare interface TableData {
   headerRow: string[];
   dataRows: string[][];
@@ -31,8 +31,7 @@ export class ProyectoComponent implements OnInit {
   public listaActividades : any[];
   public listaTiposTiempo: any[];
   public listaTiposActividad: any[];
-
-   frmproyecto: FormGroup;
+   frmproyectoEditar: FormGroup;
    submitted = false;
    titulo = 'Editar Proyecto';
 
@@ -62,12 +61,14 @@ export class ProyectoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.frmproyecto = this.formBuilder.group({
+    this.frmproyectoEditar = this.formBuilder.group({
       nombreProyecto: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      asunto: ['', Validators.required],
-      tipoProyecto: ['', Validators.required],
-      mensaje: ['', [Validators.required, Validators.minLength(6)]]
+      descripcionProyecto: ['', Validators.required],
+      etiquetas: ['', Validators.required],
+      porcentajeAsignacion: ['', Validators.required],      
+      fechaInicio: ['', Validators.required], 
+      fechaFin: ['', Validators.required],
+      tipoProyecto: ['', Validators.required]
     });
 
     this.frmActividad = this.formBuilder.group({
@@ -83,11 +84,11 @@ export class ProyectoComponent implements OnInit {
 
     this.headerRow = [ 'Nombre', 'Descripción', 'Duración', 'Fecha Inicio', 'Fecha Fin'];
     this.obtenerTiposTiempo();
-    this.obtenerTiposActividad();
-
+    this.obtenerTiposActividad();     
   }
 
   open(content) {
+    this.setearDatosModal();    
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size:'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -123,16 +124,22 @@ export class ProyectoComponent implements OnInit {
     }
   }
 
-  get f() { return this.frmproyecto.controls; }
+  get f() { return this.frmproyectoEditar.controls; }
 
   onSubmit() {
-      this.submitted = true;
+      alert('onSubmit Ejecutado !')
+  }
 
-      if (this.frmproyecto.invalid) {
-          return;
-      }
-
-      alert('Mensaje Enviado !')
+  private setearDatosModal(){
+      debugger
+      var fecha = new NgbDate(2020,10,10);
+      this.frmproyectoEditar.controls["nombreProyecto"].setValue(this.proyecto.nombre)
+      this.frmproyectoEditar.controls["descripcionProyecto"].setValue(this.proyecto.descripcion)
+      this.frmproyectoEditar.controls["etiquetas"].setValue(this.proyecto.etiqueta)
+      this.frmproyectoEditar.controls["porcentajeAsignacion"].setValue("50")
+      this.modelFechaInicio = fecha;
+      this.frmproyectoEditar.controls["tipoProyecto"].setValue(this.proyecto.idTipoProyecto)
+      
   }
 
 }

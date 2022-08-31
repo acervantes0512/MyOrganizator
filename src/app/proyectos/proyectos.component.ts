@@ -111,12 +111,16 @@ export class ProyectosComponent implements OnInit {
   }
 
   onSubmit(datos){
+    debugger
+
+    var modl = this.modelFechaInicio;
     var x = datos['fechaInicio'];
     var fechaI = x['day']+'/'+x['month']+'/'+x['year'];
     x = datos['fechaFin'];
     var fechaF = x['day']+'/'+x['month']+'/'+x['year'];
     datos.fechaInicio = fechaI;
     datos.fechaFin = fechaF;
+
 
     datos.usuario = window.sessionStorage.getItem('username');
 
