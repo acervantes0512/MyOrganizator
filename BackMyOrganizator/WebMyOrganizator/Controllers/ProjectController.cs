@@ -108,42 +108,24 @@ namespace WebMyOrganizator.Controllers
 
 
 
-    /*[HttpPut]
-    public IActionResult Edit(ProjectRequest oModel)
+    [HttpPut("actualizarProyecto")]
+    public IActionResult Edit(RequestCrearProyecto peticionModificar)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;
-
       try
       {
-
-        Project oProject = this._context.Projects.Find(oModel.ProjectId);
-        oProject.ProjectId = oModel.ProjectId;
-        oProject.Name = oModel.Name;
-        oProject.Description = oModel.Description;
-        oProject.State = oModel.State;
-        oProject.Label = oModel.Label;
-        oProject.RegisterDate = oModel.RegisterDate;
-        oProject.StartDate = oModel.StartDate;
-        oProject.EndDate = oModel.EndDate;
-        oProject.ProjectTypeId = oModel.ProjectTypeId;
-        oProject.DistDayProjectId = oModel.DistDayProjectId;
-
-        this._context.Entry(oProject).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        this._context.SaveChanges();
-
+        ProjectControl cProject = new ProjectControl();
+        cProject.actualizarProyecto(peticionModificar);
         oRespuesta.Exito = 1;
-
       }
       catch (Exception ex)
       {
         oRespuesta.Mensaje = ex.Message;
       }
-
       return Ok(oRespuesta);
-
     }
-    */
+    
 
     [HttpDelete("{Id}")]
     public IActionResult Delete(int Id)

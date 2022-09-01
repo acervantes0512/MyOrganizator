@@ -126,20 +126,37 @@ export class ProyectoComponent implements OnInit {
 
   get f() { return this.frmproyectoEditar.controls; }
 
-  onSubmit() {
-      alert('onSubmit Ejecutado !')
+  onSubmit(result) {
+      var modl = this.modelFechaInicio;
+      var x = result['fechaInicio'];
+      var fechaI = x['day']+'/'+x['month']+'/'+x['year'];
+      x = result['fechaFin'];
+      var fechaF = x['day']+'/'+x['month']+'/'+x['year'];
+      result.fechaInicio = fechaI;
+      result.fechaFin = fechaF;
+      result.usuario = window.sessionStorage.getItem('username'); //TODO Mejorar implementación para leer NgbDate
+
+      this.proyectoService.actualizarProyecto(result).subscribe(x => {
+        this.frmproyectoEditar.reset();
+        this.modalService.dismissAll();        
+      })
   }
 
-  private setearDatosModal(){
-      debugger
-      var fecha = new NgbDate(2020,10,10);
+  private setearDatosModal(){  
+
+      var dtInitial = new Date(this.proyecto.fechaInicio);
+      var fechaInicial = new NgbDate(dtInitial.getFullYear(),dtInitial.getMonth()+1,dtInitial.getDate());
+
+      var dtFinal = new Date(this.proyecto.fechaFin);
+      var fechaFinal = new NgbDate(dtFinal.getFullYear(),dtFinal.getMonth()+1,dtFinal.getDate());
+
       this.frmproyectoEditar.controls["nombreProyecto"].setValue(this.proyecto.nombre)
       this.frmproyectoEditar.controls["descripcionProyecto"].setValue(this.proyecto.descripcion)
       this.frmproyectoEditar.controls["etiquetas"].setValue(this.proyecto.etiqueta)
-      this.frmproyectoEditar.controls["porcentajeAsignacion"].setValue("50")
-      this.modelFechaInicio = fecha;
-      this.frmproyectoEditar.controls["tipoProyecto"].setValue(this.proyecto.idTipoProyecto)
-      
+      this.frmproyectoEditar.controls["porcentajeAsignacion"].setValue("50") //TODO Cambiar porcentaje de asignación quemado
+      this.modelFechaInicio = fechaInicial;
+      this.modelFechaFin = fechaFinal;
+      this.frmproyectoEditar.controls["tipoProyecto"].setValue(this.proyecto.idTipoProyecto)      
   }
 
 }

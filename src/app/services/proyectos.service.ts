@@ -27,6 +27,10 @@ export class ProyectosService {
       return this._http.post<Response>(this.url+"crearProyecto", proyecto)
     }
 
+    actualizarProyecto(proyecto:IProyecto): Observable<Response>{
+      return this._http.put<Response>(this.url+"actualizarProyecto", proyecto)
+    }
+
     eliminarProyecto(id:number): Observable<Response>{
       return this._http.delete<Response>(this.url+id);
     }

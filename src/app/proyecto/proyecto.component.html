@@ -49,7 +49,7 @@
     <div class="modal-body">
 
       <div class="container-modal">
-        <form [formGroup]="frmproyectoEditar" (ngSubmit)="onSubmit(frmproyecto.value)">
+        <form [formGroup]="frmproyectoEditar" (ngSubmit)="onSubmit(frmproyectoEditar.value)">
 
           <div class="form-group container-modal_line">
             <label>Nombre del Proyecto</label>
@@ -196,14 +196,24 @@
               </div>
             </div>
           </div>
-
+          <div class="form-group btn_modal">
+            <button type="submit" class="btn btn-primary btn_modal_accept">
+              Aceptar
+            </button>
+          </div>
         </form>
       </div>
       
     </div>
 
     <div class="modal-footer">
-      este es el footer
+      <button
+      type="button"
+      class="btn btn-light"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
     </div></ng-template
     >
 

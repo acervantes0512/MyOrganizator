@@ -43,6 +43,21 @@ namespace MyOrganizator.Data
       obj.Estado = false;
       contextoBD.Proyectos.Update(obj);
       contextoBD.SaveChanges();
+    }
+
+    public void actualizarProyecto(Proyecto proyectoModificado)
+    {
+      var entity = contextoBD.Proyectos.Find(proyectoModificado.IdProyecto);
+
+      if(entity != null)
+      {
+        entity.IdTipoProyecto = proyectoModificado.IdTipoProyecto;
+        entity.Nombre = proyectoModificado.Nombre;
+        entity.Descripcion = proyectoModificado.Descripcion;
+        entity.Etiqueta = proyectoModificado.Etiqueta;
+        entity.FechaInicio = proyectoModificado.FechaInicio;
+        entity.FechaFin = proyectoModificado.FechaFin;
+      }
 
     }
 
