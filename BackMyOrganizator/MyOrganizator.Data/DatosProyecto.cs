@@ -57,6 +57,9 @@ namespace MyOrganizator.Data
         entity.Etiqueta = proyectoModificado.Etiqueta;
         entity.FechaInicio = proyectoModificado.FechaInicio;
         entity.FechaFin = proyectoModificado.FechaFin;
+
+        contextoBD.Proyectos.Update(entity);
+        contextoBD.SaveChanges();
       }
 
     }

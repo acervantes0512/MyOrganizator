@@ -31,6 +31,7 @@ export class ProyectoComponent implements OnInit {
   public listaActividades : any[];
   public listaTiposTiempo: any[];
   public listaTiposActividad: any[];
+  public tiposProyectos: any[];
    frmproyectoEditar: FormGroup;
    submitted = false;
    titulo = 'Editar Proyecto';
@@ -84,11 +85,12 @@ export class ProyectoComponent implements OnInit {
 
     this.headerRow = [ 'Nombre', 'Descripción', 'Duración', 'Fecha Inicio', 'Fecha Fin'];
     this.obtenerTiposTiempo();
-    this.obtenerTiposActividad();     
+    this.obtenerTiposActividad(); 
+    this.obtenerTiposProyectos();     
   }
 
   open(content) {
-    this.setearDatosModal();    
+    this.setearDatosModal();       
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size:'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -127,6 +129,7 @@ export class ProyectoComponent implements OnInit {
   get f() { return this.frmproyectoEditar.controls; }
 
   onSubmit(result) {
+
       var modl = this.modelFechaInicio;
       var x = result['fechaInicio'];
       var fechaI = x['day']+'/'+x['month']+'/'+x['year'];
@@ -135,10 +138,12 @@ export class ProyectoComponent implements OnInit {
       result.fechaInicio = fechaI;
       result.fechaFin = fechaF;
       result.usuario = window.sessionStorage.getItem('username'); //TODO Mejorar implementación para leer NgbDate
+      result.idProyecto = this.proyecto.idProyecto;
 
       this.proyectoService.actualizarProyecto(result).subscribe(x => {
         this.frmproyectoEditar.reset();
-        this.modalService.dismissAll();        
+        this.modalService.dismissAll(); 
+        this.obtenerProyecto(this.proyecto.idProyecto);       
       })
   }
 
@@ -157,6 +162,19 @@ export class ProyectoComponent implements OnInit {
       this.modelFechaInicio = fechaInicial;
       this.modelFechaFin = fechaFinal;
       this.frmproyectoEditar.controls["tipoProyecto"].setValue(this.proyecto.idTipoProyecto)      
+  }
+
+  obtenerProyecto(idProyecto:number){
+    this.proyectoService.getProyecto(idProyecto).subscribe( x => {
+      this.proyecto = x.data;
+    })
+  }
+
+  obtenerTiposProyectos(){
+    let usuario:string = window.sessionStorage.getItem('username');
+    this.transversalService.obtenerTiposProyectos(usuario).subscribe(x => {
+      this.tiposProyectos = x.data;
+    })
   }
 
 }

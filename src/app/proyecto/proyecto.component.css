@@ -83,13 +83,26 @@
 .add_activity {
   border: none;
   align-items: flex-end;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  align-items: center;  
 }
+
+.elementsHeader {
+  display: flex;
+  justify-content: space-around;
+  height: 40px;
+}
+
+.title{
+  margin: auto;
+  padding: auto;
+}
+
+
 
 .container_modal_line_fechas__seccion {
   display: flex;

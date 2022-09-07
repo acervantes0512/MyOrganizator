@@ -26,5 +26,5 @@ namespace MyOrganizator.Data.Modelo
 
         public virtual Rol IdRolNavigation { get; set; }
         public virtual ICollection<Proyecto> Proyectos { get; set; }
-    }
+  }
 }

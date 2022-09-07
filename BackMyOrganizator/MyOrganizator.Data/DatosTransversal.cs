@@ -12,9 +12,9 @@ namespace MyOrganizator.Data
   {
     private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();
 
-    public List<TipoProyecto> ObtenerTiposProyectos()
+    public List<TipoProyecto> ObtenerTiposProyectos(int idUsuario)
     {
-      return contextoBD.TipoProyectos.ToList();
+      return contextoBD.TipoProyectos.Where(x => x.IdUsuario == idUsuario).ToList();      
     }
 
     public List<TipoTiempo> ObtenerTiposTiempo()

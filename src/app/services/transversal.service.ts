@@ -13,8 +13,8 @@ export class TransversalService {
     private _http: HttpClient
   ) { }
 
-  obtenerTiposProyectos():Observable<Response> {
-    return this._http.get<Response>(this._url+'obtenerTiposProyecto/');
+  obtenerTiposProyectos(username:string):Observable<Response> {
+    return this._http.get<Response>(this._url+'obtenerTiposProyecto/?username='+username);
   }
 
   obtenerTiposTiempo():Observable<Response> {

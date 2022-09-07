@@ -23,7 +23,7 @@ namespace WebMyOrganizator.Controllers
     }
 
     [HttpGet("obtenerTiposProyecto")]
-    public IActionResult Get()
+    public IActionResult Get(string username)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;
@@ -31,7 +31,7 @@ namespace WebMyOrganizator.Controllers
       {
 
         TransversalControl cProject = new TransversalControl();
-        oRespuesta.Data = cProject.ObtenerTiposProyectos();
+        oRespuesta.Data = cProject.ObtenerTiposProyectos(username);
 
       }
       catch (Exception ex)

@@ -105,7 +105,8 @@ export class ProyectosComponent implements OnInit {
   }
 
   obtenerTiposProyecto(){
-    this.transversalService.obtenerTiposProyectos().subscribe(x => {
+    let usuario:string = window.sessionStorage.getItem('username');
+    this.transversalService.obtenerTiposProyectos(usuario).subscribe(x => {
       this.tiposProyectos = x.data;
     })
   }

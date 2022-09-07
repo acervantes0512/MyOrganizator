@@ -109,7 +109,7 @@ namespace WebMyOrganizator.Controllers
 
 
     [HttpPut("actualizarProyecto")]
-    public IActionResult Edit(RequestCrearProyecto peticionModificar)
+    public IActionResult Edit(RequestEditarProyecto peticionModificar)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;

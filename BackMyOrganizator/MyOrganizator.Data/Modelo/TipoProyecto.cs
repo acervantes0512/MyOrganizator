@@ -18,10 +18,12 @@ namespace MyOrganizator.Data.Modelo
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
+        public int IdUsuario { get; set; }
 
-        public virtual TipoActividad TipoActividad { get; set; }
+    public virtual TipoActividad TipoActividad { get; set; }
         public virtual ICollection<AsignacionTipoProyecto> AsignacionTipoProyectos { get; set; }
         public virtual ICollection<PlanActividad> PlanActividads { get; set; }
         public virtual ICollection<Proyecto> Proyectos { get; set; }
-    }
+    public virtual ICollection<Usuario> Usuarios { get; set; }
+  }
 }

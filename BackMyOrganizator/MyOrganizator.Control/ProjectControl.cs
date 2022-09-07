@@ -64,14 +64,35 @@ namespace MyOrganizator.Control
 
     }
 
+    private Proyecto convertirPeticionEditar(RequestEditarProyecto editarProyecto)
+    {
+      Proyecto p = new Proyecto();
+
+      p.IdProyecto = editarProyecto.idProyecto;
+      p.Nombre = editarProyecto.nombreProyecto;
+      p.Descripcion = editarProyecto.descripcionProyecto;
+      p.DuracionMinutos = 5000;
+      p.FechaCreacion = DateTime.Now;
+      p.FechaInicio = Convert.ToDateTime(editarProyecto.fechaInicio);
+      p.FechaFin = Convert.ToDateTime(editarProyecto.fechaFin); //TODO Calcular fecha fin
+      p.IdAsignacionProyecto = 1; //TODO consultar el id
+      p.IdTipoProyecto = editarProyecto.tipoProyecto;
+      p.IdUsuario = this.datosUsuario.ObtenerUsuarioPorUsername(editarProyecto.usuario).IdUsuario;
+      p.Etiqueta = editarProyecto.etiquetas;
+      p.Estado = true;
+
+      return p;
+
+    }
+
     public void eliminarProyecto(int idProyecto)
     {
       this.datosProyecto.eliminarProyecto(idProyecto);
     }
 
-    public void actualizarProyecto(RequestCrearProyecto peticionActualizar)
+    public void actualizarProyecto(RequestEditarProyecto peticionActualizar)
     {
-      this.datosProyecto.actualizarProyecto(this.convertirPeticionCrear(peticionActualizar));
+      this.datosProyecto.actualizarProyecto(this.convertirPeticionEditar(peticionActualizar));
     }
 
     }

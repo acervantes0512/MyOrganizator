@@ -10,10 +10,11 @@ namespace MyOrganizator.Control
   {
 
     DatosTransversal datosTransversal = new DatosTransversal();
+    DatosUsuario datosUsuario = new DatosUsuario();
 
-    public List<TipoProyecto> ObtenerTiposProyectos()
+    public List<TipoProyecto> ObtenerTiposProyectos(string username)
     {
-      return datosTransversal.ObtenerTiposProyectos();
+      return datosTransversal.ObtenerTiposProyectos(datosUsuario.ObtenerUsuarioPorUsername(username).IdUsuario);
     }
 
     public List<TipoActividad> ObtenerTiposActividad()

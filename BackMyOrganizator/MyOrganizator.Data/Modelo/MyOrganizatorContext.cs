@@ -241,6 +241,12 @@ namespace MyOrganizator.Data.Modelo
                     .IsRequired()
                     .HasMaxLength(200)
                     .IsUnicode(false);
+
+              /*entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.TiposProyectos)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientNoAction)
+                    .HasConstraintName("FK_Usuario_Tipo_Proyecto");*/
             });
 
             modelBuilder.Entity<TipoTiempo>(entity =>
