@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrganizator.Data.Modelo;
 
 namespace MyOrganizator.Data.Migrations
 {
     [DbContext(typeof(MyOrganizatorContext))]
-    partial class MyOrganizatorContextModelSnapshot : ModelSnapshot
+    [Migration("20220907171027_addReference_PlanActividad")]
+    partial class addReference_PlanActividad
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,9 +72,6 @@ namespace MyOrganizator.Data.Migrations
                     b.Property<int?>("AsignacionProyectoIdAsignacionProyecto")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AsignacionProyectoIdAsignacionProyecto1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasMaxLength(500)
@@ -88,6 +87,18 @@ namespace MyOrganizator.Data.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime");
 
+                    b.Property<int>("IdProyecto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTipoActividad")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdTipoActividadNavigateIdTipoActividad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTipoTiempo")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -97,22 +108,16 @@ namespace MyOrganizator.Data.Migrations
                     b.Property<int>("OrdenEjecucion")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TipoActividadIdTipoActividad")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TipoProyectoIdTipoProyecto")
-                        .HasColumnType("int");
-
                     b.HasKey("IdPlanActividad")
                         .HasName("PK__Plan_Act__1393B5D36306DCEA");
 
                     b.HasIndex("AsignacionProyectoIdAsignacionProyecto");
 
-                    b.HasIndex("AsignacionProyectoIdAsignacionProyecto1");
+                    b.HasIndex("IdTipoActividad");
 
-                    b.HasIndex("TipoActividadIdTipoActividad");
+                    b.HasIndex("IdTipoActividadNavigateIdTipoActividad");
 
-                    b.HasIndex("TipoProyectoIdTipoProyecto");
+                    b.HasIndex("IdTipoTiempo");
 
                     b.ToTable("Plan_Actividad");
                 });
@@ -414,17 +419,27 @@ namespace MyOrganizator.Data.Migrations
                         .WithMany("PlanActividadIdProyectoNavigations")
                         .HasForeignKey("AsignacionProyectoIdAsignacionProyecto");
 
-                    b.HasOne("MyOrganizator.Data.Modelo.AsignacionProyecto", null)
+                    b.HasOne("MyOrganizator.Data.Modelo.AsignacionProyecto", "IdTipoActividadNavigation")
                         .WithMany("PlanActividadIdTipoActividadNavigations")
-                        .HasForeignKey("AsignacionProyectoIdAsignacionProyecto1");
+                        .HasForeignKey("IdTipoActividad")
+                        .HasConstraintName("FK_Plan_Tipo_Actividad")
+                        .IsRequired();
 
-                    b.HasOne("MyOrganizator.Data.Modelo.TipoActividad", null)
-                        .WithMany("PlanActividad")
-                        .HasForeignKey("TipoActividadIdTipoActividad");
+                    b.HasOne("MyOrganizator.Data.Modelo.TipoActividad", "IdTipoActividadNavigate")
+                        .WithMany()
+                        .HasForeignKey("IdTipoActividadNavigateIdTipoActividad");
 
-                    b.HasOne("MyOrganizator.Data.Modelo.TipoProyecto", null)
+                    b.HasOne("MyOrganizator.Data.Modelo.TipoProyecto", "IdTipoTiempoNavigation")
                         .WithMany("PlanActividads")
-                        .HasForeignKey("TipoProyectoIdTipoProyecto");
+                        .HasForeignKey("IdTipoTiempo")
+                        .HasConstraintName("FK_Plan_Tipo_Tiempo")
+                        .IsRequired();
+
+                    b.Navigation("IdTipoActividadNavigate");
+
+                    b.Navigation("IdTipoActividadNavigation");
+
+                    b.Navigation("IdTipoTiempoNavigation");
                 });
 
             modelBuilder.Entity("MyOrganizator.Data.Modelo.Proyecto", b =>
@@ -513,11 +528,6 @@ namespace MyOrganizator.Data.Migrations
             modelBuilder.Entity("MyOrganizator.Data.Modelo.Rol", b =>
                 {
                     b.Navigation("Usuarios");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Data.Modelo.TipoActividad", b =>
-                {
-                    b.Navigation("PlanActividad");
                 });
 
             modelBuilder.Entity("MyOrganizator.Data.Modelo.TipoProyecto", b =>

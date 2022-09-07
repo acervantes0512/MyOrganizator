@@ -63,7 +63,7 @@ namespace WebMyOrganizator
             });
 
 
-            services.AddDbContext<MyOrganizatorContext>(options =>
+            services.AddDbContext<TimeOrganizatorContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
             services.AddControllers();

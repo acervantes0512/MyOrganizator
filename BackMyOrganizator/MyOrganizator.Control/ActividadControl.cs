@@ -25,9 +25,9 @@ namespace MyOrganizator.Control
       p.DuracionMinutos = Convert.ToInt32(peticion.DuracionMinutos);
       p.FechaInicio = Convert.ToDateTime(peticion.FechaInicio);
       p.FechaFin = Convert.ToDateTime(peticion.FechaFin);
-      p.IdTipoActividad = Convert.ToInt32(peticion.IdTipoActividad);
+      /*p.IdTipoActividad = Convert.ToInt32(peticion.IdTipoActividad);
       p.IdTipoTiempo = Convert.ToInt32(peticion.IdTipoTiempo);
-      p.IdProyecto = Convert.ToInt32(peticion.IdProyecto);
+      p.IdProyecto = Convert.ToInt32(peticion.IdProyecto);*/
 
       return p;
     }

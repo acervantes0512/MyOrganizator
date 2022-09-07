@@ -19,13 +19,9 @@ namespace MyOrganizator.Data.Modelo
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public int OrdenEjecucion { get; set; }
-        public int IdTipoTiempo { get; set; }
-        public int IdTipoActividad { get; set; }
-        public int IdProyecto { get; set; }
 
-        public virtual AsignacionProyecto IdProyectoNavigation { get; set; }
-        public virtual AsignacionProyecto IdTipoActividadNavigation { get; set; }
-        public virtual TipoProyecto IdTipoTiempoNavigation { get; set; }
+
         public virtual ICollection<TiempoReal> TiempoReals { get; set; }
-    }
+
+  }
 }

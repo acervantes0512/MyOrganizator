@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyOrganizator.Control\MyOrganizator.Control.csproj" />
+    <ProjectReference Include="..\MyOrganizator.Modelo\MyOrganizator.Modelo.csproj" />
   </ItemGroup>
 
 </Project>

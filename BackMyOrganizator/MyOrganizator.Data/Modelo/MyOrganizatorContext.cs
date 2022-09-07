@@ -96,23 +96,6 @@ namespace MyOrganizator.Data.Modelo
                     .HasMaxLength(200)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdProyectoNavigation)
-                    .WithMany(p => p.PlanActividadIdProyectoNavigations)
-                    .HasForeignKey(d => d.IdProyecto)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Plan_Proyecto");
-
-                entity.HasOne(d => d.IdTipoActividadNavigation)
-                    .WithMany(p => p.PlanActividadIdTipoActividadNavigations)
-                    .HasForeignKey(d => d.IdTipoActividad)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Plan_Tipo_Actividad");
-
-                entity.HasOne(d => d.IdTipoTiempoNavigation)
-                    .WithMany(p => p.PlanActividads)
-                    .HasForeignKey(d => d.IdTipoTiempo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Plan_Tipo_Tiempo");
             });
 
             modelBuilder.Entity<Proyecto>(entity =>

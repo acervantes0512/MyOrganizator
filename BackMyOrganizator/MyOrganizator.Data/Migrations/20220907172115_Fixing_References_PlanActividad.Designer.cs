@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrganizator.Data.Modelo;
 
 namespace MyOrganizator.Data.Migrations
 {
     [DbContext(typeof(MyOrganizatorContext))]
-    partial class MyOrganizatorContextModelSnapshot : ModelSnapshot
+    [Migration("20220907172115_Fixing_References_PlanActividad")]
+    partial class Fixing_References_PlanActividad
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,9 +99,6 @@ namespace MyOrganizator.Data.Migrations
                     b.Property<int>("OrdenEjecucion")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TipoActividadIdTipoActividad")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TipoProyectoIdTipoProyecto")
                         .HasColumnType("int");
 
@@ -109,8 +108,6 @@ namespace MyOrganizator.Data.Migrations
                     b.HasIndex("AsignacionProyectoIdAsignacionProyecto");
 
                     b.HasIndex("AsignacionProyectoIdAsignacionProyecto1");
-
-                    b.HasIndex("TipoActividadIdTipoActividad");
 
                     b.HasIndex("TipoProyectoIdTipoProyecto");
 
@@ -418,10 +415,6 @@ namespace MyOrganizator.Data.Migrations
                         .WithMany("PlanActividadIdTipoActividadNavigations")
                         .HasForeignKey("AsignacionProyectoIdAsignacionProyecto1");
 
-                    b.HasOne("MyOrganizator.Data.Modelo.TipoActividad", null)
-                        .WithMany("PlanActividad")
-                        .HasForeignKey("TipoActividadIdTipoActividad");
-
                     b.HasOne("MyOrganizator.Data.Modelo.TipoProyecto", null)
                         .WithMany("PlanActividads")
                         .HasForeignKey("TipoProyectoIdTipoProyecto");
@@ -513,11 +506,6 @@ namespace MyOrganizator.Data.Migrations
             modelBuilder.Entity("MyOrganizator.Data.Modelo.Rol", b =>
                 {
                     b.Navigation("Usuarios");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Data.Modelo.TipoActividad", b =>
-                {
-                    b.Navigation("PlanActividad");
                 });
 
             modelBuilder.Entity("MyOrganizator.Data.Modelo.TipoProyecto", b =>

@@ -13,8 +13,9 @@ namespace MyOrganizator.Data
 
     public List<PlanActividad> obtenerActividadesPorProyecto(int idProyecto)
     {
-      return contextoBD.PlanActividads
-        .Where(x => x.IdProyecto == idProyecto).ToList();
+      /*return contextoBD.PlanActividads
+        .Where(x => x.IdProyecto == idProyecto).ToList();*/
+      return null;
     }
 
     public void crearActividad(PlanActividad nuevaActividad)
