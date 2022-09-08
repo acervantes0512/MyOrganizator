@@ -1,4 +1,4 @@
-using MyOrganizator.Data.Modelo;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,11 @@ namespace MyOrganizator.Data
   public class DatosTransversal
 
   {
-    private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();
+    private readonly TimeOrganizatorContext contextoBD = new TimeOrganizatorContext();
 
     public List<TipoProyecto> ObtenerTiposProyectos(int idUsuario)
     {
-      return contextoBD.TipoProyectos.Where(x => x.IdUsuario == idUsuario).ToList();      
+      return contextoBD.TipoProyectos.Where(x => x.Usuario.UsuarioId == idUsuario).ToList();      
     }
 
     public List<TipoTiempo> ObtenerTiposTiempo()

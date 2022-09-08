@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrganizator.Modelo.Tables;
 
 namespace MyOrganizator.Modelo.Migrations
 {
     [DbContext(typeof(TimeOrganizatorContext))]
-    partial class TimeOrganizatorContextModelSnapshot : ModelSnapshot
+    [Migration("20220908175111_addAllTables")]
+    partial class addAllTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,9 +28,6 @@ namespace MyOrganizator.Modelo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AsignacionTipoProyectoId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
@@ -39,8 +38,6 @@ namespace MyOrganizator.Modelo.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("AsignacionProyectoId");
-
-                    b.HasIndex("AsignacionTipoProyectoId");
 
                     b.ToTable("AsignacionProyectos");
                 });
@@ -61,12 +58,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<int>("Porcentaje")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TipoProyectoId")
-                        .HasColumnType("int");
-
                     b.HasKey("AsignacionTipoProyectoId");
-
-                    b.HasIndex("TipoProyectoId");
 
                     b.ToTable("AsignacionTipoProyectos");
                 });
@@ -96,22 +88,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<int>("OrdenEjecucion")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProyectoId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TipoActividadId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TipoTiempoId")
-                        .HasColumnType("int");
-
                     b.HasKey("PlanActividadId");
-
-                    b.HasIndex("ProyectoId");
-
-                    b.HasIndex("TipoActividadId");
-
-                    b.HasIndex("TipoTiempoId");
 
                     b.ToTable("PlanActividads");
                 });
@@ -122,9 +99,6 @@ namespace MyOrganizator.Modelo.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AsignacionProyectoId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
@@ -159,19 +133,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TipoProyectoId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("ProyectoId");
-
-                    b.HasIndex("AsignacionProyectoId");
-
-                    b.HasIndex("TipoProyectoId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Proyectos");
                 });
@@ -213,12 +175,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<int>("IdPlanActividad")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PlanActividadId")
-                        .HasColumnType("int");
-
                     b.HasKey("TiempoRealId");
-
-                    b.HasIndex("PlanActividadId");
 
                     b.ToTable("TiempoReals");
                 });
@@ -242,12 +199,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TipoProyectoId")
-                        .HasColumnType("int");
-
                     b.HasKey("TipoActividadId");
-
-                    b.HasIndex("TipoProyectoId");
 
                     b.ToTable("TipoActividads");
                 });
@@ -268,12 +220,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("TipoProyectoId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("TipoProyectos");
                 });
@@ -330,9 +277,6 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<string>("PrimerNombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RolId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SegundoApellido")
                         .HasColumnType("nvarchar(max)");
 
@@ -341,156 +285,7 @@ namespace MyOrganizator.Modelo.Migrations
 
                     b.HasKey("UsuarioId");
 
-                    b.HasIndex("RolId");
-
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.AsignacionProyecto", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.AsignacionTipoProyecto", "AsignacionTipoProyecto")
-                        .WithMany("AsignacionesProyecto")
-                        .HasForeignKey("AsignacionTipoProyectoId");
-
-                    b.Navigation("AsignacionTipoProyecto");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.AsignacionTipoProyecto", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
-                        .WithMany("AsignacionesTipoProyecto")
-                        .HasForeignKey("TipoProyectoId");
-
-                    b.Navigation("TipoProyecto");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.PlanActividad", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.Proyecto", "Proyecto")
-                        .WithMany("PlanesActividad")
-                        .HasForeignKey("ProyectoId");
-
-                    b.HasOne("MyOrganizator.Modelo.Tables.TipoActividad", "TipoActividad")
-                        .WithMany("PlanesActividad")
-                        .HasForeignKey("TipoActividadId");
-
-                    b.HasOne("MyOrganizator.Modelo.Tables.TipoTiempo", "TipoTiempo")
-                        .WithMany("PlanesActividad")
-                        .HasForeignKey("TipoTiempoId");
-
-                    b.Navigation("Proyecto");
-
-                    b.Navigation("TipoActividad");
-
-                    b.Navigation("TipoTiempo");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.Proyecto", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.AsignacionProyecto", "AsignacionProyecto")
-                        .WithMany("Proyectos")
-                        .HasForeignKey("AsignacionProyectoId");
-
-                    b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
-                        .WithMany("Proyectos")
-                        .HasForeignKey("TipoProyectoId");
-
-                    b.HasOne("MyOrganizator.Modelo.Tables.Usuario", "Usuario")
-                        .WithMany("Proyectos")
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("AsignacionProyecto");
-
-                    b.Navigation("TipoProyecto");
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.TiempoReal", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.PlanActividad", "PlanActividad")
-                        .WithMany("TiemposReales")
-                        .HasForeignKey("PlanActividadId");
-
-                    b.Navigation("PlanActividad");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.TipoActividad", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
-                        .WithMany("TiposActividad")
-                        .HasForeignKey("TipoProyectoId");
-
-                    b.Navigation("TipoProyecto");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.TipoProyecto", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.Usuario", "Usuario")
-                        .WithMany("TiposProyecto")
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.Usuario", b =>
-                {
-                    b.HasOne("MyOrganizator.Modelo.Tables.Rol", "Rol")
-                        .WithMany("Usuarios")
-                        .HasForeignKey("RolId");
-
-                    b.Navigation("Rol");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.AsignacionProyecto", b =>
-                {
-                    b.Navigation("Proyectos");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.AsignacionTipoProyecto", b =>
-                {
-                    b.Navigation("AsignacionesProyecto");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.PlanActividad", b =>
-                {
-                    b.Navigation("TiemposReales");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.Proyecto", b =>
-                {
-                    b.Navigation("PlanesActividad");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.Rol", b =>
-                {
-                    b.Navigation("Usuarios");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.TipoActividad", b =>
-                {
-                    b.Navigation("PlanesActividad");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.TipoProyecto", b =>
-                {
-                    b.Navigation("AsignacionesTipoProyecto");
-
-                    b.Navigation("Proyectos");
-
-                    b.Navigation("TiposActividad");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.TipoTiempo", b =>
-                {
-                    b.Navigation("PlanesActividad");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.Usuario", b =>
-                {
-                    b.Navigation("Proyectos");
-
-                    b.Navigation("TiposProyecto");
                 });
 #pragma warning restore 612, 618
         }

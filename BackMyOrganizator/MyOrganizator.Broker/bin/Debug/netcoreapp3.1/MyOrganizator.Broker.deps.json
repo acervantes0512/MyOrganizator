@@ -1056,10 +1056,19 @@
       },
       "MyOrganizator.Data/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4",
+          "MyOrganizator.Modelo": "1.0.0"
         },
         "runtime": {
           "MyOrganizator.Data.dll": {}
+        }
+      },
+      "MyOrganizator.Modelo/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4"
+        },
+        "runtime": {
+          "MyOrganizator.Modelo.dll": {}
         }
       }
     }
@@ -1729,6 +1738,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "MyOrganizator.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyOrganizator.Modelo/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

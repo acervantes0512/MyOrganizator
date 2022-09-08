@@ -1,6 +1,6 @@
 using MyOrganizator.Data;
-using MyOrganizator.Data.Modelo;
 using MyOrganizator.Entities.Models.Request;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Text;

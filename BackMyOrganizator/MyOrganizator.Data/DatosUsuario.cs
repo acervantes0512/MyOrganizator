@@ -1,4 +1,4 @@
-using MyOrganizator.Data.Modelo;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace MyOrganizator.Data
   
   public class DatosUsuario
   {
-    private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();
+    private readonly TimeOrganizatorContext contextoBD = new TimeOrganizatorContext();
 
     public Usuario ObtenerUsuarioPorUsername(string nombreUsuario)
     {

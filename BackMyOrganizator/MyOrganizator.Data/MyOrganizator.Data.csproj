@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyOrganizator.Modelo\MyOrganizator.Modelo.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyOrganizator.Control;
-using MyOrganizator.Data.Modelo;
 using MyOrganizator.Entities.Models.Request;
 using MyOrganizator.Entities.Models.Response;
+using MyOrganizator.Modelo.Tables;
 
 namespace WebMyOrganizator.Controllers
 {
@@ -16,9 +16,9 @@ namespace WebMyOrganizator.Controllers
   [ApiController]
   public class ProjectController : ControllerBase
   {
-    private readonly MyOrganizatorContext _context;
+    private readonly TimeOrganizatorContext _context;
 
-    public ProjectController(MyOrganizatorContext context)
+    public ProjectController(TimeOrganizatorContext context)
     {
       _context = context;
     }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrganizator.Modelo.Tables;
 
 namespace MyOrganizator.Modelo.Migrations
 {
     [DbContext(typeof(TimeOrganizatorContext))]
-    partial class TimeOrganizatorContextModelSnapshot : ModelSnapshot
+    [Migration("20220908182441_addAllConstraints")]
+    partial class addAllConstraints
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

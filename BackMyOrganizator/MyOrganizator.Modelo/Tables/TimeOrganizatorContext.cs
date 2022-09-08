@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace MyOrganizator.Data.Modelo
+namespace MyOrganizator.Modelo.Tables
 {
     public partial class TimeOrganizatorContext : DbContext
     {
@@ -16,9 +16,18 @@ namespace MyOrganizator.Data.Modelo
             : base(options)
         {
         }
-    public virtual DbSet<TipoProyecto> TipoProyectos { get; set; }
+        public virtual DbSet<AsignacionProyecto> AsignacionProyectos { get; set; }
+        public virtual DbSet<AsignacionTipoProyecto> AsignacionTipoProyectos { get; set; }
+        public virtual DbSet<PlanActividad> PlanActividads { get; set; }
+        public virtual DbSet<Proyecto> Proyectos { get; set; }
+        public virtual DbSet<Rol> Rols { get; set; }
+        public virtual DbSet<TiempoReal> TiempoReals { get; set; }
+        public virtual DbSet<TipoActividad> TipoActividads { get; set; }
+        public virtual DbSet<TipoProyecto> TipoProyectos { get; set; }
+        public virtual DbSet<TipoTiempo> TipoTiempos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {

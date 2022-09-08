@@ -1,4 +1,4 @@
-using MyOrganizator.Data.Modelo;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +9,11 @@ namespace MyOrganizator.Data
 
   public class DatosProyecto
   {
-    private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();
+    private readonly TimeOrganizatorContext contextoBD = new TimeOrganizatorContext();
     public List<Proyecto> ProyectosPorIdUsuario(int idUser)
     {
       List<Proyecto> rta = new List<Proyecto>();
-      using (var context = new MyOrganizatorContext())
+      using (var context = new TimeOrganizatorContext())
       {
         var proyecto = context.Proyectos
           .Where(p => p.IdUsuario == idUser && p.Estado).ToList();
@@ -25,7 +25,7 @@ namespace MyOrganizator.Data
 
     public Proyecto obtenerProyectoPorId(string idProyecto)
     {
-      return contextoBD.Proyectos.Where(p => p.IdProyecto == Convert.ToInt32(idProyecto)).FirstOrDefault();          
+      return contextoBD.Proyectos.Where(p => p.ProyectoId == Convert.ToInt32(idProyecto)).FirstOrDefault();          
     }
 
     public void crearProyecto(Proyecto nuevoProyecto)
@@ -47,7 +47,7 @@ namespace MyOrganizator.Data
 
     public void actualizarProyecto(Proyecto proyectoModificado)
     {
-      var entity = contextoBD.Proyectos.Find(proyectoModificado.IdProyecto);
+      var entity = contextoBD.Proyectos.Find(proyectoModificado.ProyectoId);
 
       if(entity != null)
       {

@@ -1,7 +1,7 @@
 using MyOrganizator.Data;
-using MyOrganizator.Data.Modelo;
 using MyOrganizator.Entities.Models;
 using MyOrganizator.Entities.Models.Request;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,7 +26,7 @@ namespace MyOrganizator.Control
     /// <returns></returns>
     public List<Proyecto> getAllProjects(string nombreUsuario)
     {
-      return datosProyecto.ProyectosPorIdUsuario(datosUsuario.ObtenerUsuarioPorUsername(nombreUsuario).IdUsuario);
+      return datosProyecto.ProyectosPorIdUsuario(datosUsuario.ObtenerUsuarioPorUsername(nombreUsuario).UsuarioId);
     }
 
     public Proyecto obtenerProyectoPorId(string idProyecto)
@@ -56,7 +56,7 @@ namespace MyOrganizator.Control
       p.FechaFin = Convert.ToDateTime(nuevoProyecto.fechaFin); //TODO Calcular fecha fin
       p.IdAsignacionProyecto = 1; //TODO consultar el id
       p.IdTipoProyecto = Convert.ToInt32(nuevoProyecto.tipoProyecto);
-      p.IdUsuario = this.datosUsuario.ObtenerUsuarioPorUsername(nuevoProyecto.usuario).IdUsuario;
+      p.IdUsuario = this.datosUsuario.ObtenerUsuarioPorUsername(nuevoProyecto.usuario).UsuarioId;
       p.Etiqueta = nuevoProyecto.etiquetas;
       p.Estado = true;
 
@@ -68,7 +68,7 @@ namespace MyOrganizator.Control
     {
       Proyecto p = new Proyecto();
 
-      p.IdProyecto = editarProyecto.idProyecto;
+      p.ProyectoId = editarProyecto.idProyecto;
       p.Nombre = editarProyecto.nombreProyecto;
       p.Descripcion = editarProyecto.descripcionProyecto;
       p.DuracionMinutos = 5000;
@@ -77,7 +77,7 @@ namespace MyOrganizator.Control
       p.FechaFin = Convert.ToDateTime(editarProyecto.fechaFin); //TODO Calcular fecha fin
       p.IdAsignacionProyecto = 1; //TODO consultar el id
       p.IdTipoProyecto = editarProyecto.tipoProyecto;
-      p.IdUsuario = this.datosUsuario.ObtenerUsuarioPorUsername(editarProyecto.usuario).IdUsuario;
+      p.IdUsuario = this.datosUsuario.ObtenerUsuarioPorUsername(editarProyecto.usuario).UsuarioId;
       p.Etiqueta = editarProyecto.etiquetas;
       p.Estado = true;
 

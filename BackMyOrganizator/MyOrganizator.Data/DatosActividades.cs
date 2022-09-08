@@ -1,4 +1,4 @@
-using MyOrganizator.Data.Modelo;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +9,12 @@ namespace MyOrganizator.Data
   
   public class DatosActividades
   {
-    private readonly MyOrganizatorContext contextoBD = new MyOrganizatorContext();
+    private readonly TimeOrganizatorContext contextoBD = new TimeOrganizatorContext();
 
     public List<PlanActividad> obtenerActividadesPorProyecto(int idProyecto)
     {
-      /*return contextoBD.PlanActividads
-        .Where(x => x.IdProyecto == idProyecto).ToList();*/
-      return null;
+      return contextoBD.PlanActividads
+        .Where(x => x.Proyecto.ProyectoId == idProyecto).ToList();
     }
 
     public void crearActividad(PlanActividad nuevaActividad)

@@ -1,5 +1,5 @@
 using MyOrganizator.Data;
-using MyOrganizator.Data.Modelo;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +14,7 @@ namespace MyOrganizator.Control
 
     public List<TipoProyecto> ObtenerTiposProyectos(string username)
     {
-      return datosTransversal.ObtenerTiposProyectos(datosUsuario.ObtenerUsuarioPorUsername(username).IdUsuario);
+      return datosTransversal.ObtenerTiposProyectos(datosUsuario.ObtenerUsuarioPorUsername(username).UsuarioId);
     }
 
     public List<TipoActividad> ObtenerTiposActividad()

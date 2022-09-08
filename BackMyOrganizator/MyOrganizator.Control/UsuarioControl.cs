@@ -1,5 +1,5 @@
 using MyOrganizator.Data;
-using MyOrganizator.Data.Modelo;
+using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
 using System.Text;
