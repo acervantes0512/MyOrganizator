@@ -10,7 +10,7 @@
   <div
     class="tarjeta"
     *ngFor="let element of lst; let i = index"
-    value="element.idProyecto"
+    value="element.proyectoId"
   >
     <div class="my-card">
       <div class="my-card-head">
@@ -21,7 +21,7 @@
       </div>
       <div
         class="my-card-body"
-        [routerLink]="['/proyecto', element.idProyecto]"
+        [routerLink]="['/proyecto', element.proyectoId]"
       >
         <div class="row">
           <div class="col-lg-9 text-body text-muted">
@@ -149,10 +149,11 @@
               formControlName="tipoProyecto"
               [ngClass]="{ 'is-invalid': submitted && f.tipoProyecto.errors }"
             >
+
               <option value="">Seleccionar</option>
               <option
                 *ngFor="let tipoProyecto of tiposProyectos"
-                value="{{ tipoProyecto.idTipoProyecto }}"
+                value="{{ tipoProyecto.tipoProyectoId }}"
               >
                 {{ tipoProyecto.nombre }}
               </option>

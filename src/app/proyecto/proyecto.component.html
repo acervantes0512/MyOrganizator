@@ -2,7 +2,7 @@
   <form>
     <div class="bodyProject">
 
-      <button class="button-icon" (click)="open(mymodal)">
+      <button class="button-icon" (click)="openModalUpdateProject(mymodal)">
         <i class="fa-solid fa-pen-to-square"></i>
       </button>
       
@@ -139,7 +139,7 @@
               <option value="">Seleccionar</option>
               <option
                 *ngFor="let tipoProyecto of tiposProyectos"
-                value="{{ tipoProyecto.idTipoProyecto }}"
+                value="{{ tipoProyecto.tipoProyectoId }}"
               >
                 {{ tipoProyecto.nombre }}
               </option>
@@ -224,7 +224,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        <div class="card table-activities">
           <div class="header">
             <div class="elementsHeader">
               <h4 class="title">Actividades</h4>
@@ -236,17 +236,25 @@
           <div class="content table-responsive table-full-width">
             <table class="table table-hover table-striped">
               <thead>
-                <tr>
+                <tr class="row-table">
                   <th *ngFor="let tittle of headerRow">{{tittle}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let row of listaActividades">
+                <tr class="row-table" *ngFor="let row of listaActividades">
                   <td>{{row.nombre}}</td>
                   <td>{{row.descripcion}}</td>
                   <td>{{row.duracionMinutos}}</td>
                   <td>{{row.fechaInicio | date:'fullDate'}}</td>
                   <td>{{row.fechaFin | date:'fullDate'}}</td>
+                  <td>                    
+                    <button class="button-icon-activity" (click)="openModalUpdateActivity(modalActividades,row.planActividadId)">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    <button class="button-icon-activity" (click)="eliminarProyecto(i)">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
               
@@ -264,7 +272,8 @@
 <ng-template #modalActividades let-modal>
 
   <div class="modal-header" style="text-align: center;">
-    <h2 class="modal-title" style="margin: auto;"><b>Crear Actividad</b></h2>
+    <h2 *ngIf="!isUpdatingActivity" class="modal-title" style="margin: auto;"><b>Crear Actividad</b></h2>
+    <h2 *ngIf="isUpdatingActivity" class="modal-title" style="margin: auto;"><b>Actualizar Actividad</b></h2>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -276,9 +285,10 @@
       <div class="starter-template">
         <div class="row">
           <div class="col-md-12 mt-5">
-            <form [formGroup]="frmActividad" (ngSubmit)="onSubmitActividad(frmActividad.value)">
+            <form [formGroup]="frmActividad" (ngSubmit)="onSubmitModalActivity(frmActividad.value)">
 
               <div class="form-group">
+                <input  type="hidden" formControlName="IdActividad" class="form-control" />
                 <label>Nombre Actividad</label>
                 <input type="text" formControlName="nombreActividad" class="form-control"
                   [ngClass]="{ 'is-invalid': submitted && f.nombreActividad.errors }" />
@@ -289,10 +299,10 @@
 
               <div class="form-group">
                 <label>Descripción</label>
-                <textarea formControlName="descripcionActividad" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.descripcionActividad.errors }"> </textarea>
-                <div *ngIf="submitted && f.descripcionActividad.errors" class="invalid-feedback">
-                  <div *ngIf="f.descripcionActividad.errors.required">Por favor ingresa la descripción de la actividad</div>
+                <textarea formControlName="descripcion" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }"> </textarea>
+                <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+                  <div *ngIf="f.descripcion.errors.required">Por favor ingresa la descripción de la actividad</div>
                 </div>
               </div>
 
@@ -310,7 +320,7 @@
 
                 <div class="input-group">
                   <input class="form-control" formControlName="fechaInicio" placeholder="yyyy-mm-dd" name="dp"
-                    [(ngModel)]="modelFechaInicio" ngbDatepicker #d="ngbDatepicker">
+                    [(ngModel)]="modelFechaInicioAct" ngbDatepicker #d="ngbDatepicker">
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                   </div>
@@ -322,7 +332,7 @@
 
                 <div class="input-group">
                   <input class="form-control" formControlName="fechaFin" placeholder="yyyy-mm-dd" name="dp"
-                    [(ngModel)]="modelFechaFin" ngbDatepicker #c="ngbDatepicker">
+                    [(ngModel)]="modelFechaFinAct" ngbDatepicker #c="ngbDatepicker">
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary calendar" (click)="c.toggle()" type="button"></button>
                   </div>
@@ -331,25 +341,28 @@
 
               <div class="form-group">
                 <label for="tipoTiempo">Tipo de Tiempo</label>
-                <select class="form-control" formControlName="tipoTiempo"
-                  [ngClass]="{ 'is-invalid': submitted && f.tipoTiempo.errors }">
+                <select class="form-control" formControlName="idTipoTiempo"
+                  [ngClass]="{ 'is-invalid': submitted && f.idTipoTiempo.errors }">
                   <option value="">Seleccionar</option>
-                  <option *ngFor="let tipoTiempo of listaTiposTiempo"  value="{{tipoTiempo.idTipoTiempo}}">{{tipoTiempo.nombre}}</option>
+                  <option *ngFor="let tipoTiempo of listaTiposTiempo"  value="{{tipoTiempo.tipoTiempoId}}">{{tipoTiempo.nombre}}</option>
                 </select>
               </div>
 
               
               <div class="form-group">
-                <label for="tipoActividad">Tipo de Tiempo</label>
-                <select class="form-control" formControlName="tipoActividad"
-                  [ngClass]="{ 'is-invalid': submitted && f.tipoActividad.errors }">
+                <label for="tipoActividad">Tipo de Actividad</label>
+                <select class="form-control" formControlName="idTipoActividad"
+                  [ngClass]="{ 'is-invalid': submitted && f.idTipoActividad.errors }">
                   <option value="">Seleccionar</option>
-                  <option *ngFor="let tipoActividad of listaTiposActividad"  value="{{tipoActividad.idTipoActividad}}">{{tipoActividad.nombre}}</option>
+                  <option *ngFor="let tipoActividad of listaTiposActividad"  value="{{tipoActividad.tipoActividadId}}">{{tipoActividad.nombre}}</option>
                 </select>
               </div>
             
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Aceptar</button>
+              <div *ngIf="!isUpdatingActivity" class="form-group">
+                <button type="submit" class="btn btn-primary">Crear</button>
+              </div>
+              <div *ngIf="isUpdatingActivity" class="form-group">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
               </div>
 
             </form>

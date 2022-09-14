@@ -171,3 +171,18 @@
   color: green;
   text-align: right;
 }
+
+.button-icon-activity {
+  border: none;
+  color: blue;
+  background-color: none;
+}
+
+.row-table{
+  text-align: left;
+}
+
+.table-activities{
+  margin: 50px;
+  font-size: small;
+}

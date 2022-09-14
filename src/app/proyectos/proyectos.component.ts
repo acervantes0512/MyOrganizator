@@ -67,13 +67,13 @@ export class ProyectosComponent implements OnInit {
     })
   }
 
-  getNombreTipoProyecto(idProyecto:number){
+  getNombreTipoProyecto(proyectoId:number){
 
     console.log(this.lst);
 
     for(var el of this.lst){
 
-      this.tipoProyectoService.getTipoProyecto(idProyecto).subscribe( resp => {
+      this.tipoProyectoService.getTipoProyecto(proyectoId).subscribe( resp => {
         console.log(resp);
 
 
@@ -87,6 +87,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   open(content) {
+    this.obtenerTiposProyecto();
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size:'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -133,7 +134,7 @@ export class ProyectosComponent implements OnInit {
 
   eliminarProyecto(indexProyecto:number){
     var proyecto = this.lst[indexProyecto];
-    this.proyectosService.eliminarProyecto(proyecto.idProyecto).subscribe( response => {
+    this.proyectosService.eliminarProyecto(proyecto.proyectoId).subscribe( response => {
       this.getProyectos();
     })
 

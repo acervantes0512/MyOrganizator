@@ -11,6 +11,9 @@ namespace MyOrganizator.Modelo.Tables
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int DuracionMinutos { get; set; }
+        public int TipoActividadId { get; set; }
+        public int TipoTiempoId { get; set; }
+        public int ProyectoId { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public int OrdenEjecucion { get; set; }

@@ -25,7 +25,10 @@ export class ProyectoComponent implements OnInit {
   modelActividades;
   modelFechaInicio;
   modelFechaFin;
+  modelFechaFinAct
+  modelFechaInicioAct
   frmActividad: FormGroup;
+  isUpdatingActivity: boolean;
   public headerRow: string[];
   dataRows: string[][];
   public listaActividades : any[];
@@ -74,23 +77,55 @@ export class ProyectoComponent implements OnInit {
 
     this.frmActividad = this.formBuilder.group({
       nombreActividad: ['', Validators.required],
-      descripcionActividad: ['', Validators.required],
+      descripcion: ['', Validators.required],
       duracionMinutos: ['', Validators.required],
       fechaInicio: ['', Validators.required],
       fechaFin: ['', Validators.required],
-      tipoTiempo: ['', Validators.required],
-      tipoActividad: ['', Validators.required]
+      idTipoTiempo: ['', Validators.required],
+      idTipoActividad: ['', Validators.required],
+      IdActividad: ['', Validators.required]
     })
 
 
-    this.headerRow = [ 'Nombre', 'Descripción', 'Duración', 'Fecha Inicio', 'Fecha Fin'];
+    this.headerRow = [ 'Nombre', 'Descripción', 'Duración', 'Fecha Inicio', 'Fecha Fin', 'Acciones'];
     this.obtenerTiposTiempo();
     this.obtenerTiposActividad(); 
-    this.obtenerTiposProyectos();     
+    this.obtenerTiposProyectos(); 
+    this.isUpdatingActivity = false;    
   }
 
-  open(content) {
-    this.setearDatosModal();       
+  openModalUpdateActivity(contentModal ,idActividad:number){
+    this.isUpdatingActivity = true;
+    var actividad = this.listaActividades.find(x => x.planActividadId = idActividad);
+    this.setearDataModalActivities(actividad);
+    this.open(contentModal);
+  }
+
+  openModalUpdateProject(contentModal){
+    this.setearDatosModal();
+    this.open(contentModal);
+  }
+
+  setearDataModalActivities(actividad){
+    this.frmActividad.reset();   
+    var dtInitial = new Date(actividad.fechaInicio);
+    var fechaInicial = new NgbDate(dtInitial.getFullYear(),dtInitial.getMonth()+1,dtInitial.getDate());
+
+    var dtFinal = new Date(actividad.fechaFin);
+    var fechaFinal = new NgbDate(dtFinal.getFullYear(),dtFinal.getMonth()+1,dtFinal.getDate());
+
+    this.frmActividad.controls["nombreActividad"].setValue(actividad.nombre);
+    this.frmActividad.controls["descripcion"].setValue(actividad.descripcion);
+    this.frmActividad.controls["duracionMinutos"].setValue(actividad.duracionMinutos);
+    this.frmActividad.controls["idTipoTiempo"].setValue(actividad.tipoTiempoId);
+    this.frmActividad.controls["idTipoActividad"].setValue(actividad.tipoActividadId);
+    this.frmActividad.controls["IdActividad"].setValue(actividad.planActividadId);
+    this.modelFechaInicioAct = fechaInicial;
+    this.modelFechaFinAct = fechaFinal;
+
+  }
+
+  open(content) {       
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size:'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -98,8 +133,8 @@ export class ProyectoComponent implements OnInit {
     });
   }
 
-  obtenerActividadesPorProyecto(idProyecto:string){
-    this.actividadesService.obtenerActividadesPorProyecto(idProyecto).subscribe( response => {
+  obtenerActividadesPorProyecto(proyectoId:string){
+    this.actividadesService.obtenerActividadesPorProyecto(proyectoId).subscribe( response => {
       this.listaActividades = response.data;
     })
   }
@@ -138,12 +173,12 @@ export class ProyectoComponent implements OnInit {
       result.fechaInicio = fechaI;
       result.fechaFin = fechaF;
       result.usuario = window.sessionStorage.getItem('username'); //TODO Mejorar implementación para leer NgbDate
-      result.idProyecto = this.proyecto.idProyecto;
+      result.proyectoId = this.proyecto.proyectoId;
 
       this.proyectoService.actualizarProyecto(result).subscribe(x => {
         this.frmproyectoEditar.reset();
         this.modalService.dismissAll(); 
-        this.obtenerProyecto(this.proyecto.idProyecto);       
+        this.obtenerProyecto(this.proyecto.proyectoId);       
       })
   }
 
@@ -161,11 +196,11 @@ export class ProyectoComponent implements OnInit {
       this.frmproyectoEditar.controls["porcentajeAsignacion"].setValue("50") //TODO Cambiar porcentaje de asignación quemado
       this.modelFechaInicio = fechaInicial;
       this.modelFechaFin = fechaFinal;
-      this.frmproyectoEditar.controls["tipoProyecto"].setValue(this.proyecto.idTipoProyecto)      
+      this.frmproyectoEditar.controls["tipoProyecto"].setValue(this.proyecto.tipoProyectoId)      
   }
 
-  obtenerProyecto(idProyecto:number){
-    this.proyectoService.getProyecto(idProyecto).subscribe( x => {
+  obtenerProyecto(proyectoId:number){
+    this.proyectoService.getProyecto(proyectoId).subscribe( x => {
       this.proyecto = x.data;
     })
   }
@@ -175,6 +210,54 @@ export class ProyectoComponent implements OnInit {
     this.transversalService.obtenerTiposProyectos(usuario).subscribe(x => {
       this.tiposProyectos = x.data;
     })
+  }
+
+  onSubmitCrearActividad(dataActividad){
+    var modl = this.modelFechaInicio;
+    var x = dataActividad['fechaInicio'];
+    var fechaI = x['day']+'/'+x['month']+'/'+x['year'];
+    x = dataActividad['fechaFin'];
+    var fechaF = x['day']+'/'+x['month']+'/'+x['year'];
+    dataActividad.fechaInicio = fechaI;
+    dataActividad.fechaFin = fechaF;
+    dataActividad.IdProyecto = this.proyecto.proyectoId.toString();
+
+    this.actividadesService.crearActividad(dataActividad).subscribe(x => {
+      this.frmActividad.reset();
+      this.modalService.dismissAll();
+      this.obtenerActividadesPorProyecto(this.proyecto.proyectoId);
+    })
+  }
+
+  onSubmitEditarActividad(dataActividad){  
+    debugger  
+    var modl = this.modelFechaInicio;
+    var x = dataActividad['fechaInicio'];
+    var fechaI = x['day']+'/'+x['month']+'/'+x['year'];
+    x = dataActividad['fechaFin'];
+    var fechaF = x['day']+'/'+x['month']+'/'+x['year'];
+    dataActividad.fechaInicio = fechaI;
+    dataActividad.fechaFin = fechaF;
+    dataActividad.IdProyecto = this.proyecto.proyectoId.toString();  
+
+    this.actividadesService.editarActividad(dataActividad).subscribe(x => {
+      this.frmActividad.reset();
+      this.modalService.dismissAll();
+      this.obtenerActividadesPorProyecto(this.proyecto.proyectoId);
+    }, err => {
+      debugger
+      console.log("Error Capturado==>"+err);
+    })
+  }
+
+  onSubmitModalActivity(content){
+    if(!this.isUpdatingActivity){
+      this.onSubmitCrearActividad(content);
+    }
+    else
+    {
+      this.onSubmitEditarActividad(content);
+    }
   }
 
 }

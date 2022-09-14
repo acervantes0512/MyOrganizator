@@ -16,7 +16,7 @@ namespace MyOrganizator.Data
       using (var context = new TimeOrganizatorContext())
       {
         var proyecto = context.Proyectos
-          .Where(p => p.IdUsuario == idUser && p.Estado).ToList();
+          .Where(p => p.UsuarioId == idUser && p.Estado).ToList();
         rta = proyecto;
       }
 
@@ -51,7 +51,7 @@ namespace MyOrganizator.Data
 
       if(entity != null)
       {
-        entity.IdTipoProyecto = proyectoModificado.IdTipoProyecto;
+        entity.TipoProyectoId = proyectoModificado.TipoProyectoId;
         entity.Nombre = proyectoModificado.Nombre;
         entity.Descripcion = proyectoModificado.Descripcion;
         entity.Etiqueta = proyectoModificado.Etiqueta;

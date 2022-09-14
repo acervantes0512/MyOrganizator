@@ -16,9 +16,9 @@ namespace MyOrganizator.Modelo.Tables
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public int DuracionMinutos { get; set; }
-        public int IdTipoProyecto { get; set; }
-        public int IdAsignacionProyecto { get; set; }
-        public int IdUsuario { get; set; }
+        public int TipoProyectoId { get; set; }
+        public int AsignacionProyectoId { get; set; }
+        public int UsuarioId { get; set; }
         public virtual ICollection<PlanActividad> PlanesActividad{ get; set; }
         public virtual AsignacionProyecto AsignacionProyecto { get; set; }
         public virtual TipoProyecto TipoProyecto { get; set; }

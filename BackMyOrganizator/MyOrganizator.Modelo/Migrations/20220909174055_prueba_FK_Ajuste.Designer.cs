@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrganizator.Modelo.Tables;
 
 namespace MyOrganizator.Modelo.Migrations
 {
     [DbContext(typeof(TimeOrganizatorContext))]
-    partial class TimeOrganizatorContextModelSnapshot : ModelSnapshot
+    [Migration("20220909174055_prueba_FK_Ajuste")]
+    partial class prueba_FK_Ajuste
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,11 +28,14 @@ namespace MyOrganizator.Modelo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AsignacionTipoProyectoId")
+                    b.Property<int?>("AsignacionTipoProyectoId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
+
+                    b.Property<int>("IdAsignacionTipoProy")
+                        .HasColumnType("int");
 
                     b.Property<int>("Porcentaje")
                         .HasColumnType("int");
@@ -52,10 +57,13 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
+                    b.Property<int>("IdTipoProyecto")
+                        .HasColumnType("int");
+
                     b.Property<int>("Porcentaje")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoProyectoId")
+                    b.Property<int?>("TipoProyectoId")
                         .HasColumnType("int");
 
                     b.HasKey("AsignacionTipoProyectoId");
@@ -90,13 +98,13 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<int>("OrdenEjecucion")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProyectoId")
+                    b.Property<int?>("ProyectoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoActividadId")
+                    b.Property<int?>("TipoActividadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoTiempoId")
+                    b.Property<int?>("TipoTiempoId")
                         .HasColumnType("int");
 
                     b.HasKey("PlanActividadId");
@@ -117,7 +125,7 @@ namespace MyOrganizator.Modelo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AsignacionProyectoId")
+                    b.Property<int?>("AsignacionProyectoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
@@ -141,13 +149,19 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IdAsignacionProyecto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TipoProyectoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int?>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("ProyectoId");
@@ -195,7 +209,10 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<DateTime?>("FechaRegistro")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PlanActividadId")
+                    b.Property<int>("IdPlanActividad")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PlanActividadId")
                         .HasColumnType("int");
 
                     b.HasKey("TiempoRealId");
@@ -218,10 +235,13 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
+                    b.Property<int>("IdTipoProyecto")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TipoProyectoId")
+                    b.Property<int?>("TipoProyectoId")
                         .HasColumnType("int");
 
                     b.HasKey("TipoActividadId");
@@ -247,7 +267,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int?>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("TipoProyectoId");
@@ -297,6 +317,9 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int");
+
                     b.Property<string>("NombreUsuario")
                         .HasColumnType("nvarchar(max)");
 
@@ -306,7 +329,7 @@ namespace MyOrganizator.Modelo.Migrations
                     b.Property<string>("PrimerNombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RolId")
+                    b.Property<int?>("RolId")
                         .HasColumnType("int");
 
                     b.Property<string>("SegundoApellido")
@@ -326,9 +349,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.AsignacionTipoProyecto", "AsignacionTipoProyecto")
                         .WithMany("AsignacionesProyecto")
-                        .HasForeignKey("AsignacionTipoProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AsignacionTipoProyectoId");
 
                     b.Navigation("AsignacionTipoProyecto");
                 });
@@ -337,9 +358,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
                         .WithMany("AsignacionesTipoProyecto")
-                        .HasForeignKey("TipoProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TipoProyectoId");
 
                     b.Navigation("TipoProyecto");
                 });
@@ -348,21 +367,15 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.Proyecto", "Proyecto")
                         .WithMany("PlanesActividad")
-                        .HasForeignKey("ProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProyectoId");
 
                     b.HasOne("MyOrganizator.Modelo.Tables.TipoActividad", "TipoActividad")
                         .WithMany("PlanesActividad")
-                        .HasForeignKey("TipoActividadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TipoActividadId");
 
                     b.HasOne("MyOrganizator.Modelo.Tables.TipoTiempo", "TipoTiempo")
                         .WithMany("PlanesActividad")
-                        .HasForeignKey("TipoTiempoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TipoTiempoId");
 
                     b.Navigation("Proyecto");
 
@@ -375,9 +388,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.AsignacionProyecto", "AsignacionProyecto")
                         .WithMany("Proyectos")
-                        .HasForeignKey("AsignacionProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AsignacionProyectoId");
 
                     b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
                         .WithMany("Proyectos")
@@ -387,9 +398,7 @@ namespace MyOrganizator.Modelo.Migrations
 
                     b.HasOne("MyOrganizator.Modelo.Tables.Usuario", "Usuario")
                         .WithMany("Proyectos")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("AsignacionProyecto");
 
@@ -402,9 +411,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.PlanActividad", "PlanActividad")
                         .WithMany("TiemposReales")
-                        .HasForeignKey("PlanActividadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PlanActividadId");
 
                     b.Navigation("PlanActividad");
                 });
@@ -413,9 +420,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
                         .WithMany("TiposActividad")
-                        .HasForeignKey("TipoProyectoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TipoProyectoId");
 
                     b.Navigation("TipoProyecto");
                 });
@@ -424,9 +429,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.Usuario", "Usuario")
                         .WithMany("TiposProyecto")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("Usuario");
                 });
@@ -435,9 +438,7 @@ namespace MyOrganizator.Modelo.Migrations
                 {
                     b.HasOne("MyOrganizator.Modelo.Tables.Rol", "Rol")
                         .WithMany("Usuarios")
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RolId");
 
                     b.Navigation("Rol");
                 });

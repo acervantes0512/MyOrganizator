@@ -23,5 +23,22 @@ namespace MyOrganizator.Data
       contextoBD.SaveChanges();
     }
 
+    public void editarActividad(PlanActividad actividadEditada)
+    {
+      var entity = contextoBD.PlanActividads.Find(actividadEditada.PlanActividadId);
+
+      entity.Nombre = actividadEditada.Nombre;
+      entity.OrdenEjecucion = actividadEditada.OrdenEjecucion;
+      entity.ProyectoId = actividadEditada.ProyectoId;
+      entity.TipoActividadId = actividadEditada.TipoActividadId;
+      entity.FechaInicio = actividadEditada.FechaInicio;
+      entity.FechaFin = actividadEditada.FechaFin;
+      entity.DuracionMinutos = actividadEditada.DuracionMinutos;
+      entity.Descripcion = actividadEditada.Descripcion;
+
+      contextoBD.PlanActividads.Update(entity);
+      contextoBD.SaveChanges();
+    }
+
   }
 }

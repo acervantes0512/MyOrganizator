@@ -12,6 +12,7 @@ namespace MyOrganizator.Modelo.Tables
     public string Nombre { get; set; }
     public string Descripcion { get; set; }
     public bool Estado { get; set; }
+    public int UsuarioId { get; set; }
     public virtual Usuario Usuario { get; set; }
     public virtual ICollection<AsignacionTipoProyecto> AsignacionesTipoProyecto { get; set; }
     public virtual ICollection<TipoActividad> TiposActividad { get; set; }

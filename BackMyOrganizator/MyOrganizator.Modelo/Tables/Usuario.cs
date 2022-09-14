@@ -13,7 +13,7 @@ namespace MyOrganizator.Modelo.Tables
         public string Clave { get; set; }
         public DateTime FechaRegistro { get; set; }
         public int Estado { get; set; }
-        public int IdRol { get; set; }
+        public int RolId { get; set; }
         public string PrimerNombre { get; set; }
         public string SegundoNombre { get; set; }
         public string PrimerApellido { get; set; }

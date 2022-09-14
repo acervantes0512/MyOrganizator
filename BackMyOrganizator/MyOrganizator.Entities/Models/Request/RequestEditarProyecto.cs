@@ -6,7 +6,7 @@ namespace MyOrganizator.Entities.Models.Request
 {
   public class RequestEditarProyecto
   {
-    public Int32 idProyecto { get; set; }
+    public Int32 ProyectoId { get; set; }
     public string nombreProyecto { get; set; }
     public string descripcionProyecto{ get; set; }
     public string etiquetas { get; set; }
