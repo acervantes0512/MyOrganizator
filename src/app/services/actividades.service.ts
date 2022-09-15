@@ -28,5 +28,9 @@ export class ActividadesService {
     editarActividad(dataActividadEditar:IActividadEditar): Observable<Response> {
       return this._http.put<Response>(this.urlActividad+"editarActividad",dataActividadEditar);
     }
+
+    eliminarActividad(actividadId:number): Observable<Response> {
+      return this._http.delete<Response>(this.urlActividad+"eliminarActividad/?actividadId="+actividadId);
+    }
    
 }

@@ -228,7 +228,7 @@
           <div class="header">
             <div class="elementsHeader">
               <h4 class="title">Actividades</h4>
-              <button class="add_activity" (click)="open(modalActividades)" >
+              <button class="add_activity" (click)="openModalCreateActivity(modalActividades)" >
                 <i class="fa-solid fa-plus"></i>
               </button>
             </div>
@@ -251,7 +251,7 @@
                     <button class="button-icon-activity" (click)="openModalUpdateActivity(modalActividades,row.planActividadId)">
                       <i class="fa-solid fa-pen-to-square"></i>
                     </button>
-                    <button class="button-icon-activity" (click)="eliminarProyecto(i)">
+                    <button class="button-icon-activity" (click)="eliminarActividad(row.planActividadId)">
                       <i class="fa-solid fa-trash-can"></i>
                     </button>
                   </td>
@@ -288,7 +288,7 @@
             <form [formGroup]="frmActividad" (ngSubmit)="onSubmitModalActivity(frmActividad.value)">
 
               <div class="form-group">
-                <input  type="hidden" formControlName="IdActividad" class="form-control" />
+                <input  type="hidden" formControlName="actividadId" class="form-control" />
                 <label>Nombre Actividad</label>
                 <input type="text" formControlName="nombreActividad" class="form-control"
                   [ngClass]="{ 'is-invalid': submitted && f.nombreActividad.errors }" />

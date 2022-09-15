@@ -53,5 +53,10 @@ namespace MyOrganizator.Control
       return p;
     }
 
+    public void eliminarActividad(int actividadId)
+    {
+      datosActividad.eliminarActividad(actividadId);
+    }
+
   }
 }

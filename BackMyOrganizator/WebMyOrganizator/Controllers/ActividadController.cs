@@ -62,6 +62,28 @@ namespace WebMyOrganizator.Controllers
       return Ok(oRespuesta);
     }
 
+    [HttpDelete("eliminarActividad")]
+    public IActionResult EliminarActividad(int actividadId)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
+
+        ActividadControl cProject = new ActividadControl();
+        cProject.eliminarActividad(actividadId);
+        oRespuesta.Exito = 1;
+
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
+
+      return Ok(oRespuesta);
+    }
+
 
 
   }

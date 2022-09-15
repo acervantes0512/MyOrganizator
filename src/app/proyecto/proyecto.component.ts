@@ -83,7 +83,7 @@ export class ProyectoComponent implements OnInit {
       fechaFin: ['', Validators.required],
       idTipoTiempo: ['', Validators.required],
       idTipoActividad: ['', Validators.required],
-      IdActividad: ['', Validators.required]
+      actividadId: ['', Validators.required]
     })
 
 
@@ -96,12 +96,21 @@ export class ProyectoComponent implements OnInit {
 
   openModalUpdateActivity(contentModal ,idActividad:number){
     this.isUpdatingActivity = true;
-    var actividad = this.listaActividades.find(x => x.planActividadId = idActividad);
+    this.frmActividad.reset();
+    let actividad = this.listaActividades.find(x => x.planActividadId == idActividad);
     this.setearDataModalActivities(actividad);
-    this.open(contentModal);
+    this.open(contentModal);    
   }
 
-  openModalUpdateProject(contentModal){
+  openModalCreateActivity(contentModal){
+    this.frmActividad.reset();
+    this.modelFechaInicioAct = null;
+    this.modelFechaFinAct = null;
+    this.isUpdatingActivity = false;
+    this.open(contentModal);    
+  }
+
+  openModalUpdateProject(contentModal){    
     this.setearDatosModal();
     this.open(contentModal);
   }
@@ -119,13 +128,13 @@ export class ProyectoComponent implements OnInit {
     this.frmActividad.controls["duracionMinutos"].setValue(actividad.duracionMinutos);
     this.frmActividad.controls["idTipoTiempo"].setValue(actividad.tipoTiempoId);
     this.frmActividad.controls["idTipoActividad"].setValue(actividad.tipoActividadId);
-    this.frmActividad.controls["IdActividad"].setValue(actividad.planActividadId);
+    this.frmActividad.controls["actividadId"].setValue(actividad.planActividadId);
     this.modelFechaInicioAct = fechaInicial;
     this.modelFechaFinAct = fechaFinal;
 
   }
 
-  open(content) {       
+  open(content) {      
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size:'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -159,6 +168,7 @@ export class ProyectoComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+    this.isUpdatingActivity = false;
   }
 
   get f() { return this.frmproyectoEditar.controls; }
@@ -258,6 +268,14 @@ export class ProyectoComponent implements OnInit {
     {
       this.onSubmitEditarActividad(content);
     }
+  }
+
+  eliminarActividad(actividadId){
+    this.actividadesService.eliminarActividad(actividadId).subscribe (x => {
+      this.obtenerActividadesPorProyecto(this.proyecto.proyectoId);
+    }, err => {
+      console.log("Ocurrió un Error Eliminando:" + err);
+    });
   }
 
 }
