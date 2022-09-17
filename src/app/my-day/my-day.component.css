@@ -1,0 +1,77 @@
+.body {
+    display: flexbox;
+    background-color: honeydew;
+    height: 900px;
+}
+
+.content {
+    margin: auto;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 80%;
+    height: 80%;
+}
+
+.timeCounter {
+    border: 1px solid;
+    border-radius: 8px;
+    margin: auto;
+    width: 60%;
+    margin-top: 20px;
+    padding: 5px;
+    display: flex;
+}
+
+.button_play {
+    width: 20%;
+    background-color: blueviolet;
+}
+
+.content_count {
+    width: 80%;
+    background-color: aqua;
+    align-items: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+    padding: 30px;
+}
+
+.class-icon {
+    border: none;
+    background-color: honeydew;
+    height: 100%;
+    width: 100%;
+}
+
+.cla_icon{
+    width: 90%;
+    color: green;
+    height: 90%;
+}
+
+.button_pause_stop {
+    background-color: brown;
+    width: 10%;
+    display: flexbox;
+    justify-content: space-around;
+}
+
+.section_pause {
+    height: 50%;
+    background-color: aquamarine;
+}
+
+.section_stop {
+    height: 50%;
+    background-color: blue;
+}
+
+.icon_pause {
+    height: 50%;
+    color: blue;
+}
+
+.icon_stop {
+    height: 50%;
+    color: red;
+}

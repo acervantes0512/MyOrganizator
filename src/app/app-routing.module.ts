@@ -5,6 +5,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MyDayComponent } from './my-day/my-day.component';
 import { ProyectoComponent } from './proyecto/proyecto.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent},
   { path: 'admin', component: BoardAdminComponent},
   { path: 'navbar', component: NavbarComponent},
+  { path: 'myday', component: MyDayComponent},
   { path: '**', redirectTo: 'home'}
   
 ];
