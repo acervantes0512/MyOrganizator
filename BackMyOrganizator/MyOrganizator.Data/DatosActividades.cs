@@ -47,5 +47,12 @@ namespace MyOrganizator.Data
       contextoBD.SaveChanges();
     }
 
+    public void getActivitiesByPriority()
+    {
+      var obj = contextoBD.PlanActividads.Find(5);
+      contextoBD.PlanActividads.Remove(obj);
+      contextoBD.SaveChanges();
+    }
+
   }
 }

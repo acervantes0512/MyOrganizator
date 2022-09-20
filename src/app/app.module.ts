@@ -21,6 +21,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders  } from './helpers/auth.interceptor';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { MyDayComponent } from './my-day/my-day.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MyDayComponent } from './my-day/my-day.component';
     RegisterComponent,
     BoardUserComponent,
     BoardAdminComponent,
-    MyDayComponent
+    MyDayComponent,
+    PreferencesComponent
     
   ],
   imports: [

@@ -6,6 +6,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MyDayComponent } from './my-day/my-day.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 import { ProyectoComponent } from './proyecto/proyecto.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent},
   { path: 'navbar', component: NavbarComponent},
   { path: 'myday', component: MyDayComponent},
+  { path: 'preferences', component: PreferencesComponent},
   { path: '**', redirectTo: 'home'}
   
 ];

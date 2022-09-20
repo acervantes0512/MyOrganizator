@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MyDayComponent implements OnInit {
   
   time: number = 0;
-  display ;
+  display = "00:00:00";
   interval;
   constructor() { }
 
@@ -33,10 +33,16 @@ export class MyDayComponent implements OnInit {
     var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
 
-    return hours+':'+minutes+':'+seconds;           
+    return this.setearCeros(hours)+':'+this.setearCeros(minutes)+':'+this.setearCeros(seconds);           
   }
   pauseTimer() {
     clearInterval(this.interval);
+  }
+
+  setearCeros(num):string{
+    if(Number.parseInt(num)<10)
+      return "0"+num;
+    return num;
   }
 
 }

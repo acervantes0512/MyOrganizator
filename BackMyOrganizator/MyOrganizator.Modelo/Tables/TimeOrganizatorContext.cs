@@ -16,8 +16,8 @@ namespace MyOrganizator.Modelo.Tables
             : base(options)
         {
         }
-        public virtual DbSet<AsignacionProyecto> AsignacionProyectos { get; set; }
-        public virtual DbSet<AsignacionTipoProyecto> AsignacionTipoProyectos { get; set; }
+        public virtual DbSet<AsignacionProyectoPorDia> AsignacionesProyectoPorDia { get; set; }
+        public virtual DbSet<AsignacionTipoProyectoPorDia> AsignacionesTipoProyectoPorDia { get; set; }
         public virtual DbSet<PlanActividad> PlanActividads { get; set; }
         public virtual DbSet<Proyecto> Proyectos { get; set; }
         public virtual DbSet<Rol> Rols { get; set; }
@@ -26,6 +26,8 @@ namespace MyOrganizator.Modelo.Tables
         public virtual DbSet<TipoProyecto> TipoProyectos { get; set; }
         public virtual DbSet<TipoTiempo> TipoTiempos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Parametros> Parametros { get; set; }
+        public virtual DbSet<DiaSemana> DiaSemana { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

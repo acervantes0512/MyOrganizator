@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrganizator.Modelo.Tables;
 
 namespace MyOrganizator.Modelo.Migrations
 {
     [DbContext(typeof(TimeOrganizatorContext))]
-    partial class TimeOrganizatorContextModelSnapshot : ModelSnapshot
+    [Migration("20220920143854_addTableDiasSemana")]
+    partial class addTableDiasSemana
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,9 +51,6 @@ namespace MyOrganizator.Modelo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DiaSemanaId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
@@ -63,32 +62,9 @@ namespace MyOrganizator.Modelo.Migrations
 
                     b.HasKey("AsignacionTipoProyectoPorDiaId");
 
-                    b.HasIndex("DiaSemanaId");
-
                     b.HasIndex("TipoProyectoId");
 
                     b.ToTable("AsignacionesTipoProyectoPorDia");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.DiaSemana", b =>
-                {
-                    b.Property<int>("DiaSemanaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TotalHoras")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DiaSemanaId");
-
-                    b.ToTable("DiaSemana");
                 });
 
             modelBuilder.Entity("MyOrganizator.Modelo.Tables.Parametros", b =>
@@ -394,17 +370,11 @@ namespace MyOrganizator.Modelo.Migrations
 
             modelBuilder.Entity("MyOrganizator.Modelo.Tables.AsignacionTipoProyectoPorDia", b =>
                 {
-                    b.HasOne("MyOrganizator.Modelo.Tables.DiaSemana", "DiaSemana")
-                        .WithMany("AsignacionesTipoProyectoPorDia")
-                        .HasForeignKey("DiaSemanaId");
-
                     b.HasOne("MyOrganizator.Modelo.Tables.TipoProyecto", "TipoProyecto")
                         .WithMany("AsignacionesTipoProyectoPorDia")
                         .HasForeignKey("TipoProyectoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("DiaSemana");
 
                     b.Navigation("TipoProyecto");
                 });
@@ -513,11 +483,6 @@ namespace MyOrganizator.Modelo.Migrations
             modelBuilder.Entity("MyOrganizator.Modelo.Tables.AsignacionTipoProyectoPorDia", b =>
                 {
                     b.Navigation("AsignacionesProyectoPorDia");
-                });
-
-            modelBuilder.Entity("MyOrganizator.Modelo.Tables.DiaSemana", b =>
-                {
-                    b.Navigation("AsignacionesTipoProyectoPorDia");
                 });
 
             modelBuilder.Entity("MyOrganizator.Modelo.Tables.PlanActividad", b =>
