@@ -27,5 +27,10 @@ namespace MyOrganizator.Control
       return datosTransversal.ObtenerTiposTiempo();
     }
 
-  }
+    public void CrearTipoProyecto(TipoProyecto obj)
+    {
+      datosTransversal.CrearTipoProyecto(obj);
+    }
+
+    }
 }

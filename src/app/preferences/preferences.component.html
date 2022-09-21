@@ -18,11 +18,36 @@
                             <!-- fieldsets -->
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Account Information</h2>
-                                    <input type="email" name="email" placeholder="Email Id"/>
-                                    <input type="text" name="uname" placeholder="UserName"/>
-                                    <input type="password" name="pwd" placeholder="Password"/>
-                                    <input type="password" name="cpwd" placeholder="Confirm Password"/>
+
+                                    <h2 class="fs-title">Tipos de Proyectos</h2>                                    
+
+                                    <form [formGroup]="frmTiposProyectos" (ngSubmit)="onSubmitTiposProyectos(frmTiposProyectos.value)">
+                                        <div class="bodyTiposProyectos">
+                                            <input type="input" class="form-control" formControlName="nombre" placeholder="Nombre"/>
+                                            <input type="input" class="form-control" formControlName="descripcion" placeholder="Descripción"/>
+                                            <button type="submit" class="btn btn-primary">Adicionar</button>
+                                        </div>
+                                    </form>
+
+                                    <table class="table">                                        
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Descripción</th>                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>                                            
+                                            <td>Trabajo</td>
+                                            <td>Actividades Relacionadas al trabajo en Tuya S.A.S.</td>                                            
+                                          </tr>
+                                          <tr>                                            
+                                            <td>Estudio</td>
+                                            <td>Actividades Relacionadas Estudio</td>                                            
+                                          </tr>
+                                        </tbody>
+                                      </table>
+
                                 </div>
                                 <input type="button" name="next" class="next action-button" value="Next Step"/>
                             </fieldset>

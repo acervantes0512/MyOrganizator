@@ -27,5 +27,11 @@ namespace MyOrganizator.Data
       return contextoBD.TipoActividads.ToList();
     }
 
+    public void CrearTipoProyecto(TipoProyecto obj)
+    {
+      contextoBD.TipoProyectos.Add(obj);
+      contextoBD.SaveChanges();
+    }
+
   }
 }

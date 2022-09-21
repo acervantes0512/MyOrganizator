@@ -85,6 +85,27 @@ namespace WebMyOrganizator.Controllers
       return Ok(oRespuesta);
     }
 
+    [HttpPost("crearTipoProyecto")]
+    public IActionResult CrearTiposProyecto(TipoProyecto tipoProyecto)
+    {
+      Respuesta oRespuesta = new Respuesta();
+      oRespuesta.Exito = 0;
+      try
+      {
+
+        TransversalControl cProject = new TransversalControl();
+        cProject.CrearTipoProyecto();
+
+      }
+      catch (Exception ex)
+      {
+        oRespuesta.Exito = 1;
+        oRespuesta.Mensaje = ex.Message;
+      }
+
+      return Ok(oRespuesta);
+    }
+
 
 
   }

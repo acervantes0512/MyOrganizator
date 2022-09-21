@@ -248,3 +248,17 @@ select.list-dt:focus {
     width: 100%;
     object-fit: cover;
 }
+
+.bodyTiposProyectos {
+    display: flex;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+.bodyTiposProyectos>input {
+    margin: 5px;
+}
+
+.bodyTiposProyectos>button {
+    height: 40px;
+}
