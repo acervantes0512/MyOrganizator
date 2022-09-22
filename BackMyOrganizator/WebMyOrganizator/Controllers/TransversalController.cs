@@ -94,7 +94,7 @@ namespace WebMyOrganizator.Controllers
       {
 
         TransversalControl cProject = new TransversalControl();
-        cProject.CrearTipoProyecto();
+        cProject.CrearTipoProyecto(tipoProyecto);
 
       }
       catch (Exception ex)
