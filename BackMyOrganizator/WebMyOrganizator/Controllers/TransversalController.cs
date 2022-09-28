@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyOrganizator.Control;
+using MyOrganizator.Entities.Models.Request;
 using MyOrganizator.Entities.Models.Response;
 using MyOrganizator.Modelo.Tables;
 
@@ -86,7 +87,7 @@ namespace WebMyOrganizator.Controllers
     }
 
     [HttpPost("crearTipoProyecto")]
-    public IActionResult CrearTiposProyecto(TipoProyecto tipoProyecto)
+    public IActionResult CrearTiposProyecto(RequestCrearTipoProyecto tipoProyecto)
     {
       Respuesta oRespuesta = new Respuesta();
       oRespuesta.Exito = 0;

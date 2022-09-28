@@ -1,4 +1,5 @@
 using MyOrganizator.Data;
+using MyOrganizator.Entities.Models.Request;
 using MyOrganizator.Modelo.Tables;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,31 @@ namespace MyOrganizator.Control
       return datosTransversal.ObtenerTiposTiempo();
     }
 
-    public void CrearTipoProyecto(TipoProyecto obj)
+    public void CrearTipoProyecto(RequestCrearTipoProyecto obj)
     {
-      datosTransversal.CrearTipoProyecto(obj);
+      datosTransversal.CrearTipoProyecto(mapearRequestEnModelo(obj));
+    }
+
+    private TipoProyecto mapearRequestEnModelo(RequestCrearTipoProyecto requestTipoProyecto)
+    {
+      try
+      {     
+        TipoProyecto tipoProyecto = new TipoProyecto()
+        {
+          Nombre = requestTipoProyecto.nombre,
+          Descripcion = requestTipoProyecto.descripcion,
+          Estado = true,
+          UsuarioId = Convert.ToInt32(datosUsuario.ObtenerUsuarioPorUsername(requestTipoProyecto.username).UsuarioId)        
+        };
+        return tipoProyecto;
+      }
+      catch (Exception ex)
+      {
+
+        throw ex;
+      }
+      return null;
+     
     }
 
     }

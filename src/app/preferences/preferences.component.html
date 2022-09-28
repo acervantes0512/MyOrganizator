@@ -37,14 +37,10 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr>                                            
-                                            <td>Trabajo</td>
-                                            <td>Actividades Relacionadas al trabajo en Tuya S.A.S.</td>                                            
-                                          </tr>
-                                          <tr>                                            
-                                            <td>Estudio</td>
-                                            <td>Actividades Relacionadas Estudio</td>                                            
-                                          </tr>
+                                          <tr *ngFor="let tiposProyecto of listaTiposProyectos">                                            
+                                            <td>{{tiposProyecto.nombre}}</td>
+                                            <td>{{tiposProyecto.descripcion}}</td>                                            
+                                          </tr>                                          
                                         </tbody>
                                       </table>
 
